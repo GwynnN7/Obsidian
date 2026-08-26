@@ -8,7 +8,7 @@ Convolutional Neural Networks. The point is **architecture design as a way to pu
 
 ## The motivating problem
 
-Character recognition (ZIP code / MNIST): $16\times16$ grayscale images.
+Character recognition on small grayscale images, e.g. $16\times16$.
 
 - A standard fully-connected NN with 256 inputs gets a 5%-20% misclassification rate, and many of the errors come from **lack of invariance** (rotations, shifts).
 - Idea: the features of a character should be found **wherever** they appear in the image, so the same operation should be applied to different parts of the input.
@@ -61,7 +61,7 @@ Consequences:
 - **Stacking:** units in later feature maps cover larger and larger areas of the original image (a cone from the image to the final maps) - they are indirectly connected to a large part of it.
 - The number of filters/units (i.e. feature maps) can be **increased** in higher layers, while the spatial size shrinks. Pooling keeps the number of feature maps the same.
 - It makes possible the **composition of primitives**: low-level features, learned once, are reused in all the combinations of the successive layers $\to$ [[Deep Learning]].
-- A historical instance of a deep neural network. Analogies with the animal visual cortex have been studied: a local receptive field produces the strongest response to a spatially local input pattern.
+- Analogies with the animal visual cortex: a local receptive field produces the strongest response to a spatially local input pattern.
 
 ## Training
 
@@ -75,4 +75,6 @@ Consequences:
 - [[Regularization]] - weight sharing and pooling as architectural regularization; dropout; data augmentation.
 - [[RNN]] - the 1D sliding-window (TDNN) idea, and the other way of getting memory.
 - [[Data and Preprocessing]] - structured data.
+- [[Deep Graph Networks]] - the same two ingredients (local receptive field, weight sharing) moved onto a graph, where the neighbours are unordered.
+- [[Representation Learning]] - learned filters instead of engineered features.
 - [[Cellular Automata]] - the NCA uses the same fixed-kernel convolution and a shared update network.

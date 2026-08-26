@@ -5,8 +5,7 @@ tags: [machine-learning, theory]
 # Cover's Theorem
 
 > "A complex pattern-classification problem, cast in a high-dimensional space nonlinearly, is more likely to be linearly separable than in a low-dimensional space, provided that the space is not densely populated."
->
-> Cover, T.M., *Geometrical and statistical properties of systems of linear inequalities with applications in pattern recognition*, IEEE Transactions on Electronic Computers, 1965.
+
 
 Extreme case, with a deterministic mapping: given $l$ examples, lift them onto the vertices of the $(l-1)$-dimensional simplex. Then **every** binary partition of the samples is linearly separable.
 

@@ -32,7 +32,7 @@ If we drop units during training, the expected input to the next layer is smalle
 ## In practice
 
 - Typical: $p\approx0.5$ on the fully-connected hidden layers, lower ($0.1$-$0.2$) on the inputs.
-- This is where it first proved itself: **AlexNet** used it on the globally connected layers to reduce overfitting - see [[CNN]].
+- Most useful on the large **fully-connected** layers, which hold the bulk of the parameters - see [[CNN]].
 - Convolutional layers are already regularized by weight sharing, so they usually need less (or a spatial variant).
 - $p$ is a hyperparameter $\to$ [[Grid Search]], like $\lambda$.
 - With strong dropout the training error goes up and gets noisier: that is expected, judge on validation.
@@ -40,4 +40,4 @@ If we drop units during training, the expected input to the next layer is smalle
 > [!note]
 > Dropout does the same *job* as the weight penalty of [[Regularization]] - controlling capacity - by a completely different mechanism. They can be combined, and both are selected on a validation set.
 
-Related: [[Regularization]], [[Neural Networks]], [[Deep Learning]], [[Hyperparameter Guidelines]].
+Related: [[Regularization]], [[Batch Normalization]], [[Neural Networks]], [[Deep Learning]], [[Hyperparameter Guidelines]].

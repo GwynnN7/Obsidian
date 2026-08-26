@@ -46,13 +46,32 @@ Three ways of going beyond the plain MLP:
 And their intersections:
 
 - [[Echo State Networks]] - random weights **and** recurrent.
+- [[Graph Echo State Networks]] - random weights **and** recurrent **and** on graphs.
 - [[Attention and Transformers]] - keep the past instead of compressing it.
 
 All three lean on the same principle: [[Cover's Theorem]] for the random/expansion side, and weight sharing as **architectural regularization** for the CNN/RNN side.
 
-## Still to do
+## Going deep
 
-[[Deep Learning]], [[SOM]], [[Structured Domain Learning]].
+Stack the layers and the story becomes about the **representation** rather than the units:
+
+- [[Deep Learning]] - why depth helps (no-flattening, compositionality), and the techniques that make it trainable.
+- [[Representation Learning]] - autoencoders, pre-training, transfer learning.
+- [[Distributed Representation]] - one-hot vs dense codes, word embedding, non-local generalization.
+
+## Beyond vectors
+
+- [[Structured Domain Learning]] - sequences, trees and graphs: move the models to the data.
+- [[Deep Graph Networks]] - message passing, and why it has to be deep.
+- [[Graph Echo State Networks]] - the same, with the message passing left untrained; and DynGESN for graphs that change over time.
+
+## Without a teacher
+
+No target, only the metric:
+
+- [[Vector Quantization]] - the framework: codebook, Voronoi cells, quantization error.
+- [[K-Means]] - the plain algorithm, on-line and batch.
+- [[SOM]] - the same, plus a topology on the prototypes, so you can look at the result.
 
 ## Comparison table
 

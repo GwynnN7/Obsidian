@@ -6,21 +6,25 @@ tags: [machine-learning, reference]
 
 Consistent notation across all these notes. Local variations exist and are stated where they apply.
 
+> [!important] Bold means vector or matrix
+> Vectors and matrices are written **bold** ($\boldsymbol{x}$, $\boldsymbol{w}$, $\boldsymbol{X}$); scalars are plain ($x_i$, $w_j$, $\eta$). The same letter can be either, so the weight matters: $\boldsymbol{x}_p$ is the $p$-th pattern, $x_{p,i}$ is one number inside it.
+
 ## Data
 
-- $X$: data matrix, $l$ rows (patterns) $\times$ $n$ columns (features/variables/attributes/components). $p=1..l$, $i=1..n$.
-- $x$ (bold): a row of the table - example, pattern, instance, sample, input vector.
-- $x_i$ or $x_j$ (scalar): component $i$ or $j$ of a pattern, with $p$ omitted.
-- $x_p$ (bold): the $p$-th pattern.
-- $x_{p,i}$, also $(x_p)_i$: component $i$ of pattern $p$.
-- Target: typically $y_p$, or $d_p$ or $t_p$.
+- $\boldsymbol{X}$: data matrix, $l$ rows (patterns) $\times$ $n$ columns (features/variables/attributes/components). $p=1..l$, $i=1..n$.
+- $\boldsymbol{x}$: a row of the table - example, pattern, instance, sample, input **vector**.
+- $x_i$ or $x_j$ (**scalar**): component $i$ or $j$ of a pattern, with $p$ omitted.
+- $\boldsymbol{x}_p$: the $p$-th pattern (vector).
+- $x_{p,i}$, also $(\boldsymbol{x}_p)_i$ (**scalar**): component $i$ of pattern $p$.
+- Target: typically $y_p$, or $d_p$ or $t_p$ - scalar, or $\boldsymbol{d}$ for multi-output.
 
 ## Functions
 
 - $f$: the unknown target function.
-- $h$: the hypothesis emitted by the learning algorithm to approximate $f$; $h_w$ highlights the dependence on the parameters $w$.
-- $h(x)$ is discrete for classification, real for regression.
-- $o$ (or $out$): output of a unit; $net$: weighted input to a unit.
+- $h$: the hypothesis emitted by the learning algorithm to approximate $f$; $h_{\boldsymbol{w}}$ highlights the dependence on the parameter **vector** $\boldsymbol{w}$.
+- $h(\boldsymbol{x})$ is discrete for classification, real for regression.
+- $o$ (or $out$): output of a unit; $net$: weighted input to a unit. Both scalars.
+- $w_{tu}$, $w_{ij}$ (**scalar**): a single connection weight - plain, even though $\boldsymbol{w}$ is bold.
 
 ## Loss, error and risk
 

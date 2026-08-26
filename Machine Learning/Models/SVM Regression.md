@@ -12,11 +12,11 @@ $$
 d=f(x)+v
 $$
 
-with $f$ unknown and the noise $v$ statistically independent of $x$. Given $T=\{(x_i,d_i)\}_{i=1}^{N}$, estimate $d$ with a linear expansion of non-linear functions ([[Linear Basis Expansion]]):
+with $f$ unknown and the noise $v$ statistically independent of $\boldsymbol{x}$. Given $T=\{(\boldsymbol{x}_i,d_i)\}_{i=1}^{N}$, estimate $d$ with a linear expansion of non-linear functions ([[Linear Basis Expansion]]):
 
 $$
-y=h(x)=w^T\Phi(x),\qquad
-\Phi(x)=(\phi_0(x)=1,\phi_1(x),\dots,\phi_{m_1}(x))^T,\quad w(0)=b .
+y=h(\boldsymbol{x})=\boldsymbol{w}^T\Phi(\boldsymbol{x}),\qquad
+\Phi(\boldsymbol{x})=(\phi_0(x)=1,\phi_1(x),\dots,\phi_{m_1}(x))^T,\quad w(0)=b .
 $$
 
 ## $\epsilon$-insensitive loss
@@ -43,15 +43,15 @@ The loss draws a tube of half-width $\epsilon$ around the model prediction. Poin
 Two per pattern now, one for each side of the tube:
 
 $$
--\xi_i'-\epsilon \le d_i-w^T\Phi(x_i) \le \epsilon+\xi_i
+-\xi_i'-\epsilon \le d_i-\boldsymbol{w}^T\Phi(\boldsymbol{x}_i) \le \epsilon+\xi_i
 $$
 
 giving the constraints
 
 $$
 \begin{cases}
-d_i-w^T\Phi(x_i)\le \epsilon+\xi_i\\
-w^T\Phi(x_i)-d_i\le \epsilon+\xi_i'\\
+d_i-\boldsymbol{w}^T\Phi(\boldsymbol{x}_i)\le \epsilon+\xi_i\\
+\boldsymbol{w}^T\Phi(\boldsymbol{x}_i)-d_i\le \epsilon+\xi_i'\\
 \xi_i\ge0,\quad \xi_i'\ge0
 \end{cases}
 \qquad \forall i=1,\dots,N
@@ -61,7 +61,7 @@ $$
 ## Primal problem
 
 $$
-\Psi(w,\xi,\xi')=\tfrac12 w^Tw + C\sum_{i=1}^{N}(\xi_i+\xi_i')
+\Psi(w,\xi,\xi')=\tfrac12 \boldsymbol{w}^Tw + C\sum_{i=1}^{N}(\xi_i+\xi_i')
 $$
 
 under the constraints above. Same shape as the soft-margin classifier, with the two slacks summed.
@@ -69,7 +69,7 @@ under the constraints above. Same shape as the soft-margin classifier, with the 
 ## Dual problem
 
 $$
-Q(\alpha,\alpha')=\sum_{i=1}^{N}d_i(\alpha_i-\alpha_i')-\epsilon\sum_{i=1}^{N}(\alpha_i+\alpha_i')-\frac12\sum_{i,j=1}^{N}(\alpha_i-\alpha_i')(\alpha_j-\alpha_j')\,k(x_i,x_j)
+Q(\alpha,\alpha')=\sum_{i=1}^{N}d_i(\alpha_i-\alpha_i')-\epsilon\sum_{i=1}^{N}(\alpha_i+\alpha_i')-\frac12\sum_{i,j=1}^{N}(\alpha_i-\alpha_i')(\alpha_j-\alpha_j')\,k(\boldsymbol{x}_i,\boldsymbol{x}_j)
 $$
 
 subject to
@@ -87,16 +87,16 @@ The [[Kernel Methods|kernel]] appears in exactly the same place as in classifica
 Defining $\gamma_i=\alpha_i-\alpha_i'$:
 
 $$
-w=\sum_{i=1}^{N}(\alpha_i-\alpha_i')\Phi(x_i)=\sum_{i=1}^{N}\gamma_i\Phi(x_i)
+w=\sum_{i=1}^{N}(\alpha_i-\alpha_i')\Phi(\boldsymbol{x}_i)=\sum_{i=1}^{N}\gamma_i\Phi(\boldsymbol{x}_i)
 $$
 
 > [!note] Support vector
 > Here the support vectors are the patterns with **non-zero $\gamma_i$**.
 
-And the estimate needs no $\Phi$ at all:
+And the estimate needs no $\boldsymbol{\Phi}$ at all:
 
 $$
-h(x)=w^T\Phi(x)=\sum_{i=1}^{N}\gamma_i\,\Phi^T(x_i)\Phi(x)=\sum_{i=1}^{N}\gamma_i\,k(x_i,x)
+h(\boldsymbol{x})=\boldsymbol{w}^T\Phi(\boldsymbol{x})=\sum_{i=1}^{N}\gamma_i\,\Phi^T(\boldsymbol{x}_i)\Phi(\boldsymbol{x})=\sum_{i=1}^{N}\gamma_i\,k(\boldsymbol{x}_i,x)
 $$
 
 a linear combiner of dot products in a feature space we can ignore.
@@ -108,7 +108,7 @@ a linear combiner of dot products in a feature space we can ignore.
 3. Compute the kernel matrix $K$.
 4. Solve the dual (QP) $\to$ $\{\gamma_i\}$.
 5. Compute the bias.
-6. Predict with $h(x)=\sum_i\gamma_i k(x_i,x)$.
+6. Predict with $h(\boldsymbol{x})=\sum_i\gamma_i k(\boldsymbol{x}_i,x)$.
 
 $C$, $\epsilon$ and the kernel parameters are all hyperparameters $\to$ [[Model Selection and Assessment]], and they interact, so search them **together** ([[Grid Search]]).
 

@@ -46,23 +46,23 @@ $$
 ### To use it
 
 $$
-o(x)=W^{out}f(Wx)
+o(\boldsymbol{x})=\boldsymbol{W}^{out}f(\boldsymbol{W}\boldsymbol{x})
 $$
 
 Compute the hidden activations as usual for neural units, compute the outputs, then apply a threshold (or another non-linearity) if you need classification.
 
 ### To learn it
 
-Given $l$ training examples $(x_p,d_p)$, exactly as for [[Linear Models]]: $\arg\min_{W^{out}}\text{Error}(W^{out})$ in $L_2$, by the direct method.
+Given $l$ training examples $(\boldsymbol{x}_p,d_p)$, exactly as for [[Linear Models]]: $\arg\min_{W^{out}}\text{Error}(W^{out})$ in $L_2$, by the direct method.
 
 $$
-W^{out}=H^{+}d, \qquad H=f(WX)
+\boldsymbol{W}^{out}=\boldsymbol{H}^{+}\boldsymbol{d}, \qquad \boldsymbol{H}=f(\boldsymbol{W}\boldsymbol{X})
 $$
 
 with $H^{+}$ the pseudoinverse ([[Normal Equation]]). **Often** with L2 regularization, useful given the high number of units:
 
 $$
-W^{out}=(H^TH+\lambda I)^{-1}H^Td
+\boldsymbol{W}^{out}=(\boldsymbol{H}^T\boldsymbol{H}+\lambda \boldsymbol{I})^{-1}\boldsymbol{H}^T\boldsymbol{d}
 $$
 
 i.e. [[Ridge Regression]] on the hidden representation. L1 is also possible.
@@ -79,8 +79,8 @@ i.e. [[Ridge Regression]] on the hidden representation. L1 is also possible.
 - **Big data**, thanks to the extreme efficiency.
 - **Tiny implementations** for resource-limited devices: WSNs, IoT, edge computing.
 - **Deep learning**, where training is particularly demanding: deep feed-forward randomized NN are stacks of RVFL/ELM modules; randomized CNN approaches exist too.
-- **Recurrent** randomized NN, where efficiency of training is even more demanding than for feed-forward MLP, and where the bias introduced has a solid ground in dynamical-system analysis (stability, learnability) $\to$ [[Echo State Networks]].
+- **Recurrent** randomized NN, where efficiency of training is even more demanding than for feed-forward MLP, and where the bias introduced has a solid ground in dynamical-system analysis (stability, learnability) $\to$ [[Echo State Networks]], and on graphs [[Graph Echo State Networks]].
 
 ## Related
 
-[[Neural Networks]], [[Cover's Theorem]], [[Linear Basis Expansion]], [[Echo State Networks]], [[Deep Learning]].
+[[Neural Networks]], [[Cover's Theorem]], [[Linear Basis Expansion]], [[Echo State Networks]], [[Deep Learning]], [[Deep Graph Networks]].

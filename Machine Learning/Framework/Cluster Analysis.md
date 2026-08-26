@@ -12,4 +12,20 @@ Unsupervised task: partition the data into clusters (subsets of "similar" data) 
 
 Also used to pick a subset of prototypes for [[k-NN]].
 
-Related: [[Unsupervised Learning]], and later [[SOM]].
+## Algorithms
+
+- [[Vector Quantization]] - the framework: codebook vectors, Voronoi cells, quantization error.
+- [[K-Means]] - the standard algorithm, on-line and batch.
+- [[SOM]] - prototypes arranged on a map, so the result can be visualized.
+
+## Evaluating the result
+
+How do you tell a good clustering from a poor one? Mostly you cannot, objectively:
+
+- **Subjective** - gold standards rarely exist outside well-prescribed subdomains.
+- **Quantization error** - objective, but it depends on the number of centroids, so it does not compare different $K$ fairly.
+- **Purity** (and entropy, mutual information) w.r.t. the labels of an underlying classification task - but if you have the labels you would use a classifier.
+
+Also keep apart the quality of the **model/clustering** and the quality of the **result** in the application, which is domain dependent.
+
+Related: [[Unsupervised Learning]], [[Loss Functions]].

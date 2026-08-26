@@ -39,6 +39,6 @@ with $h$ the candidate index and $I$ its input. The algorithm interleaves minimi
 - Each hidden unit reduces the residual output error: it solves a specific sub-problem and becomes a permanent **feature detector**.
 - **POOL:** the maximization is a gradient ascent on a surface with several maxima, so a pool of candidate units is trained and the best one is kept - this helps avoid local maxima.
 - It is a **greedy** algorithm: easy convergence, possibly a minimal number of units, but it can lead into [[Overfitting]] $\to$ needs [[Regularization]].
-- The loss need not be "max $S$": for regression, LMS works too (Prechelt 1997).
+- The loss need not be "max $S$": for regression, LMS works too.
 
 Related: [[Neural Networks]], [[Hyperparameter Guidelines]]. For the evolutionary way of growing an architecture, see [[NEAT]].

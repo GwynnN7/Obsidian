@@ -4,7 +4,7 @@ tags: [machine-learning, validation]
 
 # Random Search
 
-Sample hyperparameter configurations randomly instead of enumerating a grid (Bergstra & Bengio, JMLR 2012).
+Sample hyperparameter configurations randomly instead of enumerating a grid.
 
 Why it works better than it sounds:
 

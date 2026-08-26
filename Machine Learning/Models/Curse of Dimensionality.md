@@ -21,6 +21,7 @@ Also relevant for [[Linear Basis Expansion]]: large feature expansions raise the
 
 ## Controls
 
+- A different **bias**: assuming the data come from a composition of factors lets a model distinguish exponentially many regions with $O(k)$ examples, i.e. generalize non-locally $\to$ [[Deep Learning]], [[Distributed Representation]].
 - [[Feature Selection]] and dimensionality reduction.
 - Feature weighting (stretching the axes).
 - [[Regularization]].

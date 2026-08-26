@@ -28,7 +28,7 @@ The term is used generically for two things:
 
 - **Holdout:** cheap, but split-dependent / unreliable.
 - **Leave-One-Out** ($K=l$): almost no data wasted, but expensive and potentially high variance.
-- **5-fold or 10-fold:** recommended as a good compromise between bias and variance of the estimate w.r.t. LOO (Hastie et al.).
+- **5-fold or 10-fold:** a good compromise between bias and variance of the estimate w.r.t. LOO.
 - **Repeated holdout / repeated CV:** repeat the split with different random sampling (e.g. repeat the CV 10 times), average the results. Especially useful for **comparing** models.
 - [[Stratified Sampling]]: preserve class/group proportions.
 - [[Bootstrap]]: resample with replacement.

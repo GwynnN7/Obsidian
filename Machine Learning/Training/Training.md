@@ -32,11 +32,13 @@ For an MLP, step 2 is done by [[Backpropagation]]: a forward pass to compute the
 - [[Stopping Criteria]] - when to stop.
 - [[Optimizers]] - SGD, RMSProp, Adam, AdamW.
 - [[Learning Curve]] - the plot that tells you if it is working.
+- Gradient **clipping** and the vanishing/exploding gradient across layers $\to$ [[Deep Learning]].
 
 ## Complexity control
 
 - [[Regularization]] - penalty on the loss. The main tool.
 - [[Dropout]] - regularization by randomly dropping units.
+- [[Batch Normalization]] - normalize the activations between layers; regularizes as a side effect.
 - [[Early Stopping]] - empirical, uses validation data.
 - Number of hidden units, [[Cascade Correlation]], pruning.
 

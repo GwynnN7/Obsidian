@@ -31,7 +31,7 @@ They all answer the same question: **choose the variance of the initial weights 
 | **He / Kaiming** | $\operatorname{Var}(w)=\dfrac{2}{\text{fan-in}}$ | $\pm\sqrt{6/\text{fan-in}}$ | **ReLU** and variants |
 
 - Each has a gaussian form ($\mathcal{N}(0,\operatorname{Var})$) and a uniform form - the ranges above give exactly that variance.
-- **Glorot** (Glorot & Bengio, AISTATS 2010) balances the forward and the backward pass, hence the average of fan-in and fan-out. Very popular among practitioners.
+- **Glorot** balances the forward and the backward pass, hence the average of fan-in and fan-out.
 - **He** doubles the variance because ReLU zeroes about half of the activations, halving the variance at every layer - see [[Activation Functions]].
 - **LeCun** is the fan-in-only version - the one the classic $\times\,2/\text{fan-in}$ heuristic above is approximating.
 - **Biases** go to $0$ in all three: there is no symmetry to break on a bias.

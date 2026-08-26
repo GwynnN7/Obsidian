@@ -44,4 +44,7 @@ Things that show up in more than one subject - link them here as they appear.
 | **The i.i.d. assumption breaking** | [[Generalization and Risk]]                  | [[Reasoning over Time]] - concept drift                              |
 | **Agents that learn**              | [[Reinforcement Learning]]                   | [[Agent Architectures]], [[Monte-Carlo Tree Search]]                 |
 | **Causality is not correlation**   | [[ML Workflow]]                              | [[Causal Networks]] - the do-operator                                |
+| **Symbolic vs distributed codes**  | [[Distributed Representation]]               | [[Propositional Logic]], [[First-Order Logic]] - symbols share nothing |
+| **Graphs as model vs as data**     | [[Structured Domain Learning]], [[Deep Graph Networks]] | [[Bayesian Networks]], [[Causal Networks]]                |
+| **Discretizing a continuous space**| [[Vector Quantization]], [[SOM]]             | [[Novelty and Quality-Diversity]] - the MAP-Elites bins              |
 

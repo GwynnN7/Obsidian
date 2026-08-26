@@ -18,7 +18,6 @@ Machine Learning Hub. [[ML Framework]] is the starting point for a logic order.
 | [[Training]] | gradient descent, backprop, all the training knobs |
 | [[Validation]] | model selection and assessment, CV, metrics |
 | [[Hyperparameter Guidelines\|Guidelines]] | the practical do / don't reference |
-| [[To Do]] | PDFs not covered yet |
 
 ## The thread
 
@@ -31,7 +30,9 @@ Machine Learning Hub. [[ML Framework]] is the starting point for a logic order.
 7. **The theory of the trade-off** - [[Statistical Learning Theory]], [[VC Dimension]], [[Structural Risk Minimization]], [[Bias-Variance Tradeoff]].
 8. **How to do it right** - [[Validation]], [[Model Selection and Assessment]], [[Cross Validation]].
 9. **How to do it in practice** - [[Hyperparameter Guidelines]].
-10. **Still to do** - [[Deep Learning]], [[SOM]], [[Structured Domain Learning]].
+10. **Without a teacher** - [[Unsupervised Learning]], [[Vector Quantization]], [[K-Means]], [[SOM]].
+11. **Going deep** - [[Deep Learning]], [[Representation Learning]], [[Distributed Representation]].
+12. **Beyond vectors** - [[Structured Domain Learning]], [[Deep Graph Networks]], [[Graph Echo State Networks]].
 
 ## The three things to never forget
 

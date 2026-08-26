@@ -7,7 +7,7 @@ tags: [machine-learning, training]
 Error-correction update (Widrow-Hoff / Adaline / LMS rule) for a differentiable output:
 
 $$
-w_{new}=w+\eta\,\delta\,x,\qquad \delta=(d-out).
+\boldsymbol{w}_{new}=\boldsymbol{w}+\eta\,\delta\,\boldsymbol{x},\qquad \delta=(d-out).
 $$
 
 Why it is an "error correction" rule:
@@ -21,7 +21,7 @@ In neuron terms: the adjustment of a synaptic weight is proportional to the prod
 With a sigmoidal unit the delta becomes
 
 $$
-\delta_p=(d_p-o(x_p))\,f'_\sigma(net(x_p)).
+\delta_p=(d_p-o(\boldsymbol{x}_p))\,f'_\sigma(net(\boldsymbol{x}_p)).
 $$
 
 Compare with the [[Perceptron]] rule, where $out=\operatorname{sign}(w^Tx)$: the Hebbian form $w_{new}=w+\eta\,d\,x$ vs the error-correction form above.

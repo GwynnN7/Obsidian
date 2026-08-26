@@ -28,7 +28,7 @@ $$
 
 - $a$ is the slope. $a\to0$ gives a linear unit, $a\to\infty$ gives an LTU.
 - They are semi-linear close to $0$.
-- Often tanh learns faster (Haykin).
+- Often tanh learns faster.
 
 ### Using them as classifiers
 
@@ -49,7 +49,7 @@ Hence: avoid premature saturation - start with **small weights** (see [[Weight I
 
 - **RBF** - $f(x)=e^{-ax^2}$, gaussian, on $\lVert w-x_{input}\rVert$ $\to$ RBF networks.
 - **Softmax** - multi-output, sums to 1, readable as a probability. See [[Multiclass Classification]].
-- **ReLU** - $f(x)=\max(0,x)$. The default choice for deep models, discussed in [[Deep Learning]].
+- **ReLU** - $f(x)=\max(0,x)$. The default choice for deep models; why, plus the Leaky ReLU / ELU variants, in [[Deep Learning]].
 - **Softplus** - $\ln(1+e^x)$, smooth approximation of ReLU.
 - **Tanh-like piecewise linear** - for efficient computation.
 - **Stochastic neurons** - output $+1$ with probability $P(net)$ $\to$ Boltzmann machines.

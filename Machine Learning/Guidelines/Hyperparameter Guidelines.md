@@ -20,7 +20,7 @@ Reference page for setting up backprop training, plus the validation rules that 
 
 - **(!)** random values **near zero**, e.g. $[-0.7,+0.7]$ for standardized data;
 - consider the **fan-in**: range $\times\,2/\text{fan-in}$;
-- or Glorot-Bengio: 0 for the biases, uniform in $[-1/\sqrt{\text{fan-in}},+1/\sqrt{\text{fan-in}}]$.
+- or Glorot: 0 for the biases, uniform in $[-1/\sqrt{\text{fan-in}},+1/\sqrt{\text{fan-in}}]$.
 
 **DON'T**
 
@@ -137,6 +137,13 @@ $\to$ [[Regularization]]
 
 - too few $\to$ [[Underfitting]]; too many with no regularization $\to$ [[Overfitting]].
 
+### And the number of layers?
+
+No general answer either - it is model selection again. Two things to keep in mind:
+
+- deeper often means **fewer** units per layer and fewer parameters overall, so less data is needed ([[Deep Learning]]);
+- but many layers are harder to optimize, and with very large networks the hyperparameter space gets so big that most architectural choices are fixed by experience rather than searched.
+
 ---
 
 ## 7. Stopping
@@ -252,4 +259,4 @@ Worth doing: relate the optimization of the loss with a penalty term to the VC-b
 
 ## Related
 
-- [[Training]], [[Neural Networks]], [[Validation]]
+- [[Training]], [[Neural Networks]], [[Validation]], [[Deep Learning]]

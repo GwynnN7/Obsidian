@@ -43,7 +43,7 @@ A transduction is a mapping *input sequence $\to$ output value or sequence*:
 
 ### 1. Finite memory / spatial approach (TDNN)
 
-Input-delay neural networks: a finite-size **shift register**, i.e. a sliding window over the sequence, feeding an MLP. If the buffer contains enough information, plain MLP training solves it (e.g. NETtalk, 1988).
+Input-delay neural networks: a finite-size **shift register**, i.e. a sliding window over the sequence, feeding an MLP. If the buffer contains enough information, plain MLP training solves it.
 
 - **But:** you must know the window size in advance, and the number of weights depends on the buffer size.
 - This is the same idea [[CNN]] extends to 2D images.
@@ -135,4 +135,4 @@ The domain moves from vectors to sequences: inputs $l(t)$, outputs $o(t)$ or $y(
 
 ## Related
 
-[[Neural Networks]], [[CNN]], [[Backpropagation]], [[Echo State Networks]], [[Attention and Transformers]], [[Deep Learning]].
+[[Neural Networks]], [[CNN]], [[Backpropagation]], [[Echo State Networks]], [[Attention and Transformers]], [[Deep Learning]], [[Structured Domain Learning]].

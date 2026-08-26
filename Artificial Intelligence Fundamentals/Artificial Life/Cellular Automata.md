@@ -62,6 +62,6 @@ Studies the mechanisms of **organism shape generation**: self-organization, robu
 - **Update rule:** a small [[Neural Networks|neural network]] (~8k parameters) returning a state update. The network is **shared across all cells** (weight sharing again), and the update is applied randomly with 50% probability per cell. Iterative, typically from a single living cell.
 - **Stability:** either set the target pattern as an attractor (computationally expensive), or learn from a **pool of states** updated over time with intermediate states.
 - **Regeneration after trauma:** damage the pool states (zero out a random circular region) before use.
-- **Self-classifying MNIST:** each cell predicts the class and the final prediction comes from cellular agreement; immutable input channels plus 19 trained channels, the last 10 being class probabilities (~25k parameters).
+- **Self-classifying digits:** each cell predicts the class and the final prediction comes from cellular agreement; immutable input channels plus 19 trained channels, the last 10 being class probabilities (~25k parameters).
 
 Related: [[Artificial Life]], [[CNN]], [[Neural Networks]].

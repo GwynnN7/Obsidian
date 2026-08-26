@@ -17,28 +17,28 @@ Simple but very flexible, and **local**. The other extreme of the panorama w.r.t
 - **1-NN:** find the nearest training example
 
   $$
-  i^*(x)=\arg\min_p d(x,x_p),\qquad d(x,x_p)=\sqrt{\sum_{t=1}^{n}(x_t-x_{p,t})^2}=\lVert x-x_p\rVert ,
+  i^*(\boldsymbol{x})=\arg\min_p d(\boldsymbol{x},\boldsymbol{x}_p),\qquad d(\boldsymbol{x},\boldsymbol{x}_p)=\sqrt{\sum_{t=1}^{n}(x_t-x_{p,t})^2}=\lVert \boldsymbol{x}-\boldsymbol{x}_p\rVert ,
   $$
 
   and output $y_{i^*}$. The induced partition of the space is the **Voronoi diagram**.
-- **k-NN:** use the neighborhood $N_k(x)$ of the $k$ closest patterns and average:
+- **k-NN:** use the neighborhood $N_k(\boldsymbol{x})$ of the $k$ closest patterns and average:
 
   $$
-  \operatorname{avg}_k(x)=\frac1k\sum_{x_i\in N_k(x)}y_i .
+  \operatorname{avg}_k(\boldsymbol{x})=\frac1k\sum_{\boldsymbol{x}_i\in N_k(\boldsymbol{x})}y_i .
   $$
 
   - Classification: majority vote,
     $$
-    h(x)=\arg\max_v \sum_{x_i\in N_k(x)}\mathbb{1}_{v,y_i}.
+    h(\boldsymbol{x})=\arg\max_v \sum_{\boldsymbol{x}_i\in N_k(\boldsymbol{x})}\mathbb{1}_{v,y_i}.
     $$
   - Regression: use the average directly.
-- **Weighted variant:** weight the neighbors by $1/d(x,x_i)^2$ so that closer ones count more (if $d=0$ for some $i$, return $y_i$).
+- **Weighted variant:** weight the neighbors by $1/d(\boldsymbol{x},\boldsymbol{x}_i)^2$ so that closer ones count more (if $d=0$ for some $i$, return $y_i$).
 
 ## Effect of $k$
 
 - Small $k$: very flexible, irregular boundary, 0 training error with $k=1$, high variance $\to$ [[Overfitting]].
 - Large $k$: smoother, more robust to noise, higher bias $\to$ [[Underfitting]].
-- Effective number of parameters $\approx l/k$ (Hastie et al.), **not** 1. The misclassification-vs-$l/k$ plot is another instance of the SLT U-curve.
+- Effective number of parameters $\approx l/k$, **not** 1. The misclassification-vs-$l/k$ plot is another instance of the SLT U-curve.
 - $k$ is the complexity hyperparameter to select by [[Model Selection and Assessment]] (LOO CV is natural here).
 
 ## Inductive bias

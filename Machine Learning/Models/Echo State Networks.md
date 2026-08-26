@@ -29,7 +29,7 @@ The reservoir acts as a projection (embedding) of the input sequences into the v
 
 - It can intrinsically discriminate among different input sequences in a **suffix-based** fashion, *without* training the recurrent weights: states are close to each other proportionally to the length of their **common suffix**.
 - So Markovian tasks are easy to learn - also for a fully trained [[RNN]], but ESN are far more efficient.
-- This is the **architectural bias** of recurrent models, and it is present with learning too (Gallicchio & Micheli, *Architectural and Markovian factors of echo state networks*, Neural Networks, 2011).
+- This is the **architectural bias** of recurrent models, and it is present with learning too.
 
 Related to dynamical-system studies, chaos theory and fractals.
 
@@ -48,6 +48,8 @@ Frequency analysis on a linear DeepESN shows diversified magnitudes of the FFT c
 
 Efficiency-critical settings: big data, embedded/edge devices, and anywhere the cost of BPTT is prohibitive. Hardware implementations exist via photonic reservoir computing (speed, latency, power efficiency).
 
+The same reservoir idea extends from sequences to **graphs** - the state recurs over the neighbours instead of over time, and the stability condition picks up the degree of the graph $\to$ [[Graph Echo State Networks]], within the general framework of [[Deep Graph Networks]].
+
 ## Related
 
-[[RNN]], [[Randomized Neural Networks]], [[Deep Learning]], [[Ridge Regression]].
+[[RNN]], [[Randomized Neural Networks]], [[Graph Echo State Networks]], [[Deep Learning]], [[Ridge Regression]], [[Structured Domain Learning]].

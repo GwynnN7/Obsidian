@@ -27,7 +27,7 @@ $$
 
 - One hidden layer is sufficient *in general*, but nothing guarantees a **small** number of units.
 - Bounds on that number exist for many function families.
-- There are also "**no flattening**" results (about efficiency, not expressivity): for some functions a single hidden layer would need an exponential number of units w.r.t. the input dimension, while more layers help - for the number of units/weights and/or for learning the approximation.
+- There are also "**no flattening**" results (about efficiency, not expressivity): for some functions a single hidden layer would need an exponential number of units w.r.t. the input dimension, while more layers help - for the number of units/weights and/or for learning the approximation. The clearest example is the parity function, in [[Deep Learning]].
 - Open question: is a deep MLP easy to optimize? $\to$ [[Deep Learning]].
 
 Related: [[Neural Networks]], [[Structural Risk Minimization]].

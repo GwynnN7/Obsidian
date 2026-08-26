@@ -6,8 +6,6 @@ tags: [machine-learning, theory]
 
 There is no universally best learning method. If an algorithm does better than others on some problems, it must pay with worse results on other problems.
 
-(Devroye 1982; Wolpert & Macready 1997.)
-
 ## But models are not all equivalent
 
 What actually separates them:

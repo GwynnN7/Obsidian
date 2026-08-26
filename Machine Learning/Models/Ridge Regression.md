@@ -7,19 +7,19 @@ tags: [machine-learning, models]
 [[Linear Models]] + Tikhonov (L2) penalty:
 
 $$
-\operatorname{Loss}(w)=\sum_{p=1}^{l}(y_p-x_p^Tw)^2+\lambda\lVert w\rVert^2 ,
-\qquad \lVert w\rVert^2=\sum_j w_j^2 .
+\operatorname{Loss}(\boldsymbol{w})=\sum_{p=1}^{l}(y_p-\boldsymbol{x}_p^T\boldsymbol{w})^2+\lambda\lVert \boldsymbol{w}\rVert^2 ,
+\qquad \lVert \boldsymbol{w}\rVert^2=\sum_j w_j^2 .
 $$
 
 $\lambda$ is a **hyperparameter**, chosen in the [[Model Selection and Assessment|model selection]] phase.
 
 ## Solutions
 
-- Direct: $w=(X^TX+\lambda I)^{-1}X^Ty$ - always invertible.
+- Direct: $\boldsymbol{w}=(\boldsymbol{X}^T\boldsymbol{X}+\lambda \boldsymbol{I})^{-1}\boldsymbol{X}^T\boldsymbol{y}$ - always invertible.
 - Gradient: differentiate the two terms separately, using $\eta$ only on the error term:
 
   $$
-  w_{new}=w+\eta\,\Delta w-2\lambda w .
+  \boldsymbol{w}_{new}=\boldsymbol{w}+\eta\,\Delta \boldsymbol{w}-2\lambda \boldsymbol{w} .
   $$
 
   This is **weight decay**.

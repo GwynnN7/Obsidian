@@ -4,7 +4,7 @@ tags: [machine-learning, models, neural-networks]
 
 # Attention and Transformers
 
-A **transformer** is a deep learning architecture (**Attention is all you need**, 2017) that relies on the parallel **multi-head attention** mechanism, instead of the recurrence of [[RNN]].
+A **transformer** is a deep learning architecture that relies on the parallel **multi-head attention** mechanism, instead of the recurrence of [[RNN]].
 
 ## Attention
 

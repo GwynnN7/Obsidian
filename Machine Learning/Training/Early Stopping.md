@@ -37,7 +37,7 @@ See [[Stopping Criteria]] - too small underfits (and unfairly favours a large $\
 
 There is no perfect single epoch count coming out of CV:
 
-- **Possible but imperfect:** treat #epochs as a hyperparameter and average the validation-optimal epochs over the folds (Mitchell p.112). Issue: the final training set has a different size, so its best stopping point can move - risking undertraining or overtraining.
+- **Possible but imperfect:** treat #epochs as a hyperparameter and average the validation-optimal epochs over the folds. Issue: the final training set has a different size, so its best stopping point can move - risking undertraining or overtraining.
 - **Better:** take the **training error** at each fold's validation-optimal point, average that value, and retrain until the same level of fitting is reached. This avoids the undertraining effect.
 - **Alternative:** keep a VL set during the final retraining too, i.e. use a VL set any time you train the model.
 

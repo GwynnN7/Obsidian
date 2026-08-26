@@ -46,7 +46,7 @@ $$
 \lnot h_1\land h_2=(\lnot a\lor\lnot b)\land(a\lor b)=(\lnot a\land b)\lor(a\land\lnot b)=a \oplus b .
 $$
 
-The point is not the trick but the **internal representation**: $(1,0)$ becomes $(h_1,h_2)=(0,1)$, and in that new space the problem *is* linearly separable. Developing high-level hidden features is the key factor of NN, and the road to representation learning and [[Deep Learning]]. The general principle behind "expand, then separate linearly" is [[Cover's Theorem]].
+The point is not the trick but the **internal representation**: $(1,0)$ becomes $(h_1,h_2)=(0,1)$, and in that new space the problem *is* linearly separable. Developing high-level hidden features is the key factor of NN, and the road to [[Representation Learning]] and [[Deep Learning]]. The general principle behind "expand, then separate linearly" is [[Cover's Theorem]].
 
 ## Two views of an MLP
 
@@ -110,7 +110,7 @@ For a single [[Perceptron]] the error signal is directly measurable. In an MLP w
 
 ## Perceptron vs LMS/Adaline
 
-Two historical ways of training a single unit:
+Two ways of training a single unit:
 
 | | Perceptron | LMS / Adaline |
 |---|---|---|

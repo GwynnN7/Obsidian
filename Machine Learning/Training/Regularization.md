@@ -14,8 +14,8 @@ Control the **complexity** of the model, and so the generalization - a principle
 ## L2 / Tikhonov
 
 $$
-\operatorname{Loss}(w)=\underbrace{\sum_p(d_p-o(x_p))^2}_{\text{error / data term (MSE)}}+\underbrace{\lambda\lVert w\rVert^2}_{\text{penalty}},
-\qquad \lVert w\rVert^2=\sum_i w_i^2 \text{ over all the weights}.
+\operatorname{Loss}(\boldsymbol{w})=\underbrace{\sum_p(d_p-o(\boldsymbol{x}_p))^2}_{\text{error / data term (MSE)}}+\underbrace{\lambda\lVert \boldsymbol{w}\rVert^2}_{\text{penalty}},
+\qquad \lVert \boldsymbol{w}\rVert^2=\sum_i w_i^2 \text{ over all the weights}.
 $$
 
 - Effect: **weight decay** - add $2\lambda w$ to the gradient of each weight:
@@ -68,6 +68,7 @@ Divide by $l$ only the gradient of $E$, where the sum over the patterns is.
 - Architecture / number of hidden units: too few $\to$ [[Underfitting]], too many $\to$ [[Overfitting]] (can be pushed higher if $\lambda$ is doing its job).
 - **Architectural** regularization: local connections and weight sharing cut the number of free parameters while keeping the connections - see [[CNN]] and [[RNN]].
 - [[Dropout]] - randomly drop units during training: a different mechanism for the same job.
+- [[Batch Normalization]] - regularizes through the noise of the mini-batch statistics.
 
 > [!note] Frequent misunderstanding II - ES or Regularization?
 > ES is empirical and needs a VL set, sacrificing part of the data. Regularization in the Loss is principled: it makes the VL curve follow the TR curve, so ES is not (strictly) needed and you can stop at training convergence. You can use both - and ES will simply not fire if the VL error never increases.

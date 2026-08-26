@@ -7,20 +7,20 @@ tags: [machine-learning, models]
 Still a restricted $H$, but now a **continuous** one. Baseline for everything else: first question on any task is "is it linear?".
 
 $$
-h_w(x)=w^Tx=w_0+\sum_{i=1}^{n}w_ix_i ,
+h_{\boldsymbol{w}}(\boldsymbol{x})=\boldsymbol{w}^T\boldsymbol{x}=w_0+\sum_{i=1}^{n}w_ix_i ,
 $$
 
 with the convention $x_0=1$ so that $w_0$ (intercept / threshold / bias / offset) is inside the product.
 
 > [!note]
-> "Linear" refers to how the parameters $w$ enter the equation, not to the shape of the curve in $x$. That is why [[Linear Basis Expansion]] is still a linear model.
+> "Linear" refers to how the parameters $\boldsymbol{w}$ enter the equation, not to the shape of the curve in $\boldsymbol{x}$. That is why [[Linear Basis Expansion]] is still a linear model.
 
 ## LMS / least squares
 
-Given $l$ examples $(x_p,y_p)$, find $w$ minimizing the residual sum of squares:
+Given $l$ examples $(\boldsymbol{x}_p,y_p)$, find $\boldsymbol{w}$ minimizing the residual sum of squares:
 
 $$
-E(w)=\sum_{p=1}^{l}(y_p-x_p^Tw)^2=\lVert y-Xw\rVert^2 .
+E(\boldsymbol{w})=\sum_{p=1}^{l}(y_p-\boldsymbol{x}_p^T\boldsymbol{w})^2=\lVert \boldsymbol{y}-\boldsymbol{X}\boldsymbol{w}\rVert^2 .
 $$
 
 Divide by $l$ to get the mean (LMS). This is a quadratic, convex function $\to$ a minimum always exists (not necessarily unique), no local minima.
@@ -32,20 +32,20 @@ Divide by $l$ to get the mean (LMS). This is a quadratic, convex function $\to$ 
 Setting the gradient to zero,
 
 $$
-\frac{\partial E(w)}{\partial w_j}=-2\sum_{p=1}^{l}(y_p-x_p^Tw)\,x_{p,j}=0
+\frac{\partial E(\boldsymbol{w})}{\partial w_j}=-2\sum_{p=1}^{l}(y_p-\boldsymbol{x}_p^T\boldsymbol{w})\,x_{p,j}=0
 \quad\Longrightarrow\quad
-(X^TX)w=X^Ty .
+(\boldsymbol{X}^T\boldsymbol{X})\boldsymbol{w}=\boldsymbol{X}^T\boldsymbol{y} .
 $$
 
-- If $X^TX$ is non singular: $w=(X^TX)^{-1}X^Ty=X^{+}y$ with $X^{+}$ the Moore-Penrose pseudoinverse.
-- Otherwise infinite solutions: pick the minimum-norm one, computed with SVD.
+- If $\boldsymbol{X}^T\boldsymbol{X}$ is non singular: $\boldsymbol{w}=(\boldsymbol{X}^T\boldsymbol{X})^{-1}\boldsymbol{X}^T\boldsymbol{y}=\boldsymbol{X}^{+}\boldsymbol{y}$ with $\boldsymbol{X}^{+}$ the Moore-Penrose pseudoinverse.
+- Otherwise infinite solutions: pick the minimum-norm $\boldsymbol{w}$, computed with SVD.
 - Cost is cubic in the matrix dimension.
 
 ### 2. Iterative: [[Gradient Descent]]
 
 $$
-\Delta w_j=2\sum_{p=1}^{l}\underbrace{(y_p-x_p^Tw)}_{\delta_p}x_{p,j},
-\qquad w_{new}=w+\eta\,\Delta w .
+\Delta w_j=2\sum_{p=1}^{l}\underbrace{(y_p-\boldsymbol{x}_p^T\boldsymbol{w})}_{\delta_p}x_{p,j},
+\qquad \boldsymbol{w}_{new}=\boldsymbol{w}+\eta\,\Delta \boldsymbol{w} .
 $$
 
 Preferred, because it is:
@@ -62,15 +62,15 @@ This is the [[Delta Rule]] / Widrow-Hoff error-correction rule: no error $\to$ n
 Threshold the linear score:
 
 $$
-h(x)=\begin{cases}1 & \text{if } w^Tx+w_0\ge0\\ 0 & \text{otherwise}\end{cases}
+h(\boldsymbol{x})=\begin{cases}1 & \text{if } \boldsymbol{w}^T\boldsymbol{x}+w_0\ge0\\ 0 & \text{otherwise}\end{cases}
 \qquad\text{or}\qquad
-h(x)=\operatorname{sign}(w^Tx+w_0).
+h(\boldsymbol{x})=\operatorname{sign}(\boldsymbol{w}^T\boldsymbol{x}+w_0).
 $$
 
-- $w^Tx+w_0=0$ is the **decision boundary**, a hyperplane. Saying $w^Tx\ge-w_0$ shows $-w_0$ as the activation threshold.
-- $w$ is **orthogonal** to the hyperplane: for $x_a,x_b$ on it, $w^T(x_a-x_b)=0$.
+- $\boldsymbol{w}^T\boldsymbol{x}+w_0=0$ is the **decision boundary**, a hyperplane. Saying $\boldsymbol{w}^T\boldsymbol{x}\ge-w_0$ shows $-w_0$ as the activation threshold.
+- $\boldsymbol{w}$ is **orthogonal** to the hyperplane: for $\boldsymbol{x}_a,\boldsymbol{x}_b$ on it, $\boldsymbol{w}^T(\boldsymbol{x}_a-\boldsymbol{x}_b)=0$.
 - If $w_0=0$ the hyperplane goes through the origin.
-- **Scaling freedom:** multiplying $w$ by any $K>0$ gives the same boundary.
+- **Scaling freedom:** multiplying $\boldsymbol{w}$ by any $K>0$ gives the same boundary.
 - If a separating hyperplane exists there are many of them - hence many different learning algorithms.
 
 For training we still use the squared error on $w^Tx$ (not on $h(x)$), so the loss stays differentiable. Minimizing MSE also drives the classification error down, but:
@@ -86,7 +86,7 @@ For training we still use the squared error on $w^Tx$ (not on $h(x)$), so the lo
 
 ## Complexity control
 
-- [[Ridge Regression]] / Tikhonov: $\operatorname{Loss}(w)=E(w)+\lambda\lVert w\rVert^2$.
+- [[Ridge Regression]] / Tikhonov: $\operatorname{Loss}(\boldsymbol{w})=E(\boldsymbol{w})+\lambda\lVert \boldsymbol{w}\rVert^2$.
 - L1 (lasso), elastic nets - see [[Regularization]].
 - More basis functions $\to$ more expressivity $\to$ more overfitting risk, plus [[Curse of Dimensionality]].
 - Data augmentation, derived inputs (principal component regression, partial least squares).
