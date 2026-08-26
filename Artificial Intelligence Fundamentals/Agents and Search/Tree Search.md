@@ -13,11 +13,10 @@ Expand successor states from already visited states.
 
 Every algorithm is judged on:
 
-| | |
-|---|---|
-| **Completeness** | is a solution guaranteed to be found if one exists? |
-| **Time complexity** | number of nodes generated |
-| **Space complexity** | max number of nodes stored in memory |
-| **Optimality** | does it find the lowest-cost solution? |
+| **Completeness**     | is a solution guaranteed to be found if one exists? |
+| -------------------- | --------------------------------------------------- |
+| **Time complexity**  | number of nodes generated                           |
+| **Space complexity** | max number of nodes stored in memory                |
+| **Optimality**       | does it find the lowest-cost solution?              |
 
 Related: [[Uninformed Search]], [[Informed Search]], [[Search Problems]].

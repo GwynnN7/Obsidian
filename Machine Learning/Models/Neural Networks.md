@@ -4,7 +4,7 @@ tags: [machine-learning, models, neural-networks]
 
 # Neural Networks
 
-For us: **ANN = a flexible ML tool**, i.e. a mathematical function $h(x)$ with special properties. The biological inspiration matters historically, but the computational and algorithmic properties are what count here.
+**Artificial NN are a flexible ML tool**, i.e. a mathematical function $h(x)$ with special properties.
 
 Why they are interesting:
 
@@ -24,17 +24,17 @@ $$
 with $x_0=1$ and $w_{t0}$ the bias. $f$ is the [[Activation Functions|activation function]].
 
 > [!note] Index convention
-> $w_{ij}$ is the weight **of unit $i$**, from input/unit $j$ to unit $i$. Some libraries (and Wikipedia) use the opposite - see [[Notation]].
+> $w_{ij}$ is the weight **of unit $i$**, from input/unit $j$ to unit $i$ - see [[Notation]].
 
-## From McCulloch & Pitts to the MLP
+## Binary Units MLP
 
-McCulloch & Pitts (1943): binary units, positive (excitatory) / negative (inhibitory) weights, a unit fires when the weighted sum plus bias exceeds zero. Basically the LTU / [[Perceptron]].
+Binary units, positive (excitatory) / negative (inhibitory) weights, a unit fires when the weighted sum plus bias exceeds zero. Basically the LTU / [[Perceptron]].
 
 - A single unit can represent **AND, OR, NOT** (hence NAND, NOR):
   - AND on 2 vars: $w_1=w_2=1$, $w_0=-1.5$.
   - OR on 2 vars: $w_1=w_2=1$, $w_0=-0.5$.
 - $\Rightarrow$ every Boolean function can be represented by *some* network of perceptrons, and **two levels are enough** (more can be more efficient).
-- **But a single unit cannot** (Minsky & Papert 1969): XOR is not linearly separable.
+- **But a single unit cannot**: XOR is not linearly separable.
 
 ### XOR with two layers
 
@@ -100,12 +100,12 @@ This is the important connection: $h(x)$ is a nonlinear function of weighted sum
 
 Smoothness: small input variations $\to$ small output variations (e.g. a locally limited first derivative). Sensible, because a non-smooth target (a random number generator) cannot be generalized at all.
 
-## Learning: the credit assignment problem
+## The credit assignment problem
 
 For a single [[Perceptron]] the error signal is directly measurable. In an MLP we do **not** know the desired response of a hidden unit - which credit goes to it? Plus the model is non-linear in $w$.
 
-- Judged too difficult by Minsky-Papert (1969); solved by [[Backpropagation]], popularized by Rumelhart, Hinton, Williams (PDP book, 1986) - the renaissance of NN.
-- The **loading problem** ("is there a set of weights consistent with the examples?") is NP-complete (Judd, 1990). In practice networks train in reasonable time, but an optimal solution is not guaranteed.
+- Solved by [[Backpropagation]].
+- The **loading problem** ("is there a set of weights consistent with the examples?") is NP-complete. In practice networks train in reasonable time, but an optimal solution is not guaranteed.
 - Requirements: differentiable loss, differentiable activation functions, and a network to follow the information flow.
 
 ## Perceptron vs LMS/Adaline

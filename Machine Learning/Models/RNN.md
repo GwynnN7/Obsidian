@@ -114,12 +114,6 @@ Two algorithms compute the same gradient of the output errors over the unfolded 
 
 Most are in the popular libraries (PyTorch, Keras, Caffe2, Matlab, CNTK).
 
-## Impact
-
-For many years the reference method for sequence processing, with state-of-the-art results in speech recognition/processing and text processing (machine translation). Some numbers: in 2015 LSTM was in 2 billion Android phones and 1 billion iPhones (Siri); in 2016 almost 30% of Google's datacenter compute for inference went to LSTM; in 2017 it was in Alexa and in Facebook's 30 billion translations a week.
-
-E.g. Graves, *Generating Sequences With Recurrent Neural Networks*: generate handwriting by predicting one $(x,y)$ pen point at a time.
-
 ## Other models for sequences
 
 SOM/unsupervised NN for sequential domains ([[SOM]]), [[Hidden Markov Models]] (the probabilistic cousin: a discrete hidden state instead of a learned continuous one), [[Attention and Transformers]], [[Echo State Networks]], distance-based models (string matching), kernels for strings, grammatical inference, ILP.

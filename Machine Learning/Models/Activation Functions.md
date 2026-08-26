@@ -54,8 +54,6 @@ Hence: avoid premature saturation - start with **small weights** (see [[Weight I
 - **Tanh-like piecewise linear** - for efficient computation.
 - **Stochastic neurons** - output $+1$ with probability $P(net)$ $\to$ Boltzmann machines.
 
-Many of them perform comparably.
-
 ## Choosing the output units
 
 - **Regression:** linear unit(s), one per quantitative response.

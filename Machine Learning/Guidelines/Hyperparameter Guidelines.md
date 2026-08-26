@@ -10,9 +10,7 @@ Reference page for setting up backprop training, plus the validation rules that 
 
 - Two general problems with NN: the model is often **over-parametrized**, and the optimization problem is **not convex and potentially unstable**.
 - Most of these are heuristics, but some have a theoretical ground and most can be framed in a more general framework (regularization).
-- **Avoid rules of thumb from blogs**, unless proved in scientific papers or empirically assessed by yourself.
 - The optimization technique only matters when there are actual obstacles to training. **Validation matters more than the optimization on the training set** - optimizing on training data is not the purpose.
-- SGD + [[Momentum]] + [[Regularization]] is the starting point, also as the comparison baseline if you move to something else.
 
 ---
 
@@ -39,14 +37,14 @@ $\to$ [[Weight Initialization]]
 
 ## 2. Batch / on-line / mini-batch
 
-| | Batch | On-line (SGD) | Mini-batch |
-|---|---|---|---|
-| Update after | one epoch | one pattern | $mb$ patterns |
-| Gradient | most accurate | noisy | in between |
-| Speed | slower (waits for all data) | can be faster | good |
-| $\eta$ | higher | **smaller** | tune it |
-| Parallelism | yes | no | yes (fits GPU memory) |
-| Extra | - | can escape local minima, regularizing noise, may be unstable | scales to huge data sets |
+|              | Batch                       | On-line (SGD)                                                | Mini-batch               |
+| ------------ | --------------------------- | ------------------------------------------------------------ | ------------------------ |
+| Update after | one epoch                   | one pattern                                                  | $mb$ patterns            |
+| Gradient     | most accurate               | noisy                                                        | in between               |
+| Speed        | slower (waits for all data) | can be faster                                                | good                     |
+| $\eta$       | higher                      | **smaller**                                                  | tune it                  |
+| Parallelism  | yes                         | no                                                           | yes (fits GPU memory)    |
+| Extra        | smoothest                   | can escape local minima, regularizing noise, may be unstable | scales to huge data sets |
 
 **DO**
 
@@ -68,7 +66,7 @@ $\to$ [[Batch Online and Mini-Batch]]
 - **(!)** divide the gradient by $l$ (Least Mean Squares): it makes $\eta$ independent of the number of data, and then $0<\eta<1$;
 - typical search range in LMS: $[0.01,\ 0.5]$ - but always find it by [[Grid Search]];
 - consider decaying it linearly until step $\tau$ and then keeping it fixed and small ($\eta_\tau\approx1\%$ of $\eta_0$, $\tau$ a few hundred steps) - especially with mini-batch, where the gradient does not go to zero near a minimum;
-- adaptive rates (AdaGrad, RMSProp, Adam) exist and are popular for DL, often robust with default values - but they are not the didactic starting point.
+- adaptive rates (AdaGrad, RMSProp, Adam) exist and are popular for DL.
 
 **DON'T**
 
@@ -223,7 +221,6 @@ Small implementation errors are hard to spot, because a NN often still "works" w
 **DO**
 
 - test on a **small, easy, artificial benchmark** first, where a tiny network is known to reach very high accuracy quickly - if you can't get state-of-the-art results there with few units, the code is wrong;
-- or use a reliable library (Keras, Scikit-learn, PyTorch, ...) as an **oracle** to compare against;
 - judge the **shape** of the [[Learning Curve]], not the absolute numbers: are you close to a good convergence or far from it? All the MSE curves should come out smooth.
 
 **DON'T**

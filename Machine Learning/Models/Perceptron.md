@@ -4,7 +4,7 @@ tags: [machine-learning, models, neural-networks]
 
 # Perceptron
 
-Rosenblatt (1957-1962). A single LTU trained to **minimize the number of misclassified patterns**: find $w$ s.t. $\operatorname{sign}(w^Tx)=d$.
+A single LTU trained to **minimize the number of misclassified patterns**: find $w$ s.t. $\operatorname{sign}(w^Tx)=d$.
 
 Historically important: a biologically inspired model with well-defined computational capabilities, **proved** by a theorem.
 

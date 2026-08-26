@@ -10,7 +10,7 @@ Support Vector Machines. Three ideas stacked on top of each other:
 2. that maximizes the **separation margin** -
 3. which turns out to be an automatic implementation of [[Structural Risk Minimization]].
 
-Notation here follows Haykin ch. 6: $N$ examples (was $l$), $m$ input dimension (was $n$), $b$ instead of $w_0$, indices $i,j$ over patterns. See [[Notation]].
+Notation here follows: $N$ examples (was $l$), $m$ input dimension (was $n$), $b$ instead of $w_0$, indices $i,j$ over patterns. See [[Notation]].
 
 We start with the **hard margin** case, assuming linearly separable data and no errors.
 
@@ -299,15 +299,9 @@ Other honest points:
 3. *"SVM has no problem with high input dimension - does it solve the curse of dimensionality?"* **No.** It deals well with high dimensionality in the **feature** space, not in the **input** space. See [[Curse of Dimensionality]].
 4. *"With SVM you automatically find the number of units."* Only in the picture-view sense above; it is the QP solution that decides how many support vectors survive, not a capacity search.
 
-## A historical success
-
-Handwritten digits (MNIST) was a historical instance of successful SVM application: ~0.8% error in ~1998 with a degree-9 polynomial SVM. Comparable to LeNet ([[CNN]]) and obtained **without** years of development on architectures - a good illustration both of the relevance of applications and of the relevance of good theory for successful applications.
-
 ## Related
 
 - [[Kernel Methods]] - the kernel trick and its life beyond SVM.
 - [[SVM Regression]] - the $\epsilon$-insensitive version.
 - [[Structural Risk Minimization]], [[VC Dimension]], [[Cover's Theorem]]
 - [[Linear Models]], [[Linear Basis Expansion]], [[Perceptron]], [[Neural Networks]]
-
-**References:** Haykin ch. 6; Burges, *A Tutorial on SVM for Pattern Recognition*; Vapnik, *An Overview of Statistical Learning Theory*, IEEE TNN 10(5), 1999; Scholkopf & Smola, *Learning with Kernels*; Shawe-Taylor & Cristianini. Practical: *A Practical Guide to Support Vector Classification* (LIBSVM).

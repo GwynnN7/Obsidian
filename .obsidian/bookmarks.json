@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "type": "file",
+      "ctime": 1787778587118,
+      "path": "Artificial Intelligence Fundamentals/Games and Multiagent/Game Theory.md",
+      "subpath": "#Nash equilibrium",
+      "title": "Nash Equilibrium"
+    },
+    {
+      "type": "file",
+      "ctime": 1787778647891,
+      "path": "Artificial Intelligence Fundamentals/Artificial Life/Cellular Automata.md",
+      "subpath": "#Neural Cellular Automaton (NCA)",
+      "title": "Cellular Automata"
+    },
+    {
+      "type": "file",
+      "ctime": 1787778704885,
+      "path": "Artificial Intelligence Fundamentals/Agents and Search/Uninformed Search.md",
+      "subpath": "#Uninformed Search",
+      "title": "Uninformed Serach"
+    },
+    {
+      "type": "file",
+      "ctime": 1787778716585,
+      "path": "Artificial Intelligence Fundamentals/Agents and Search/Informed Search.md",
+      "subpath": "#Informed Search",
+      "title": "Informed Search"
+    },
+    {
+      "type": "file",
+      "ctime": 1787778759884,
+      "path": "Artificial Intelligence Fundamentals/Games and Multiagent/Monte-Carlo Tree Search.md",
+      "subpath": "#Monte-Carlo Tree Search",
+      "title": "MCTS"
+    },
+    {
+      "type": "file",
+      "ctime": 1787778795877,
+      "path": "Artificial Intelligence Fundamentals/Games and Multiagent/Social Welfare.md",
+      "subpath": "#Pareto optimality",
+      "title": "Pareto Optimality"
+    },
+    {
+      "type": "file",
+      "ctime": 1787778869017,
+      "path": "Artificial Intelligence Fundamentals/Knowledge and Logic/First-Order Logic.md",
+      "subpath": "#First-Order Logic",
+      "title": "FOL"
+    },
+    {
+      "type": "file",
+      "ctime": 1787778963730,
+      "path": "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Hidden Markov Models.md",
+      "subpath": "#Hidden Markov Models",
+      "title": "Hidden Markov Model"
+    },
+    {
+      "type": "file",
+      "ctime": 1787779007039,
+      "path": "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Probability and Decision Theory.md",
+      "subpath": "#Bayes' rule",
+      "title": "Bayes' Rule"
+    }
+  ]
+}

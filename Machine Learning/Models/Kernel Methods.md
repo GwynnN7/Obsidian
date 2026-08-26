@@ -89,8 +89,6 @@ Similar objects (small distance) $\to$ high kernel value.
 
 > The idea underpinning the use of a kernel function is to focus on the representation and processing of **pairwise comparisons** rather than on the representation of a single object. For some domains it is easier to compare two objects than to define an abstract feature space for one.
 
-Exercise worth doing: re-think this as for the distance-based methods ([[k-NN]]) - when is it a good kernel, when is it a bad one?
-
 ## Designing kernels
 
 You need a **good** kernel for the specific domain, and the inputs need not be vectors at all:

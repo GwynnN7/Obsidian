@@ -7,7 +7,7 @@ tags:
 
 # Artificial Intelligence Fundamentals
 
-Hub. The classic AI toolkit: how an agent decides what to do, and how it represents what it knows.
+Hub. How an agent decides what to do, and how it represents what it knows.
 
 ## The map
 
@@ -32,4 +32,4 @@ Hub. The classic AI toolkit: how an agent decides what to do, and how it represe
 7. **Acting on knowledge** - [[Classical Planning]], [[PDDL]], [[Planning Heuristics]], [[Advanced Planning]].
 8. **Acting under uncertainty** - [[Probability and Decision Theory]], [[Bayesian Networks]], [[Bayesian Network Inference]], [[Reasoning over Time]].
 
-Part of [[Artificial Intelligence]] - the hub holds the concepts shared with the other subjects.
+Part of [[Artificial Intelligence]].

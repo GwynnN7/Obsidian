@@ -52,4 +52,4 @@ Machine Learning Hub. [[ML Framework]] is the starting point for a logic order.
 - $\operatorname{Loss}=$ data error $+$ penalty; **Error** $=$ the data term alone.
 - Full reference: [[Notation]].
 
-Part of [[Artificial Intelligence]] - the hub holds the concepts shared with the other subjects.
+Part of [[Artificial Intelligence]].

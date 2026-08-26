@@ -4,8 +4,7 @@ tags: [machine-learning, moc]
 
 # ML Framework
 
-Everything fits in the same frame: **learn a function from examples**.
-The five ingredients of any ML system:
+General frame is **learn a function from examples**. The five topis of any ML system:
 
 | Ingredient | What it is | Note |
 |---|---|---|
@@ -33,7 +32,7 @@ The five ingredients of any ML system:
 
 Useful when:
 
-- there is no good theory / no rules we can write by hand (face recognition: we can do it, we can't describe how),
+- there is no good theory / no rules we can write by hand,
 - data are noisy, uncertain or incomplete,
 - the behaviour must be personalized.
 

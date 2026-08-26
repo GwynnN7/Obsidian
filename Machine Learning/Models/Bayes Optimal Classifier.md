@@ -13,8 +13,6 @@ $$
 - Its error rate is the **Bayes rate**: the minimum achievable error rate given the distribution of the data.
 - It is a reference point, not an algorithm - the generating density is unknown in practice.
 
-In the standard simulation example (two classes generated from gaussian mixtures) the optimal boundary can be computed exactly, and 15-NN comes close to it.
-
 [[k-NN]] approximates it by:
 
 - replacing the conditional probability at a point with the conditional probability in a **neighborhood** of the point,

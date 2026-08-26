@@ -8,8 +8,6 @@ A **randomized approach** employs a degree of randomness as part of its construc
 
 ## Randomness at different levels of ML
 
-Most of it we have already met, scattered around:
-
 | Level | Where |
 |---|---|
 | Data splitting | hold-out, k-fold, LOO - [[Cross Validation]] |
@@ -30,8 +28,6 @@ Can we exploit the MLP (or [[RNN]]) architecture **without long training cycles 
 - train **only the output weights**, which is a linear model $\to$ pseudoinverse / ridge regression.
 
 This sidesteps the complex and computationally demanding training algorithms normally used for NN.
-
-Long tradition (Random Vector Functional-Link, random projection architectures), recently repopularized under names like **ELM** (Extreme Learning Machine). Roots go back to the pioneering work on the [[Perceptron]], where the projection area was fixed and only the association area was adapted; other early works had already pointed out the relevance of learning in the **output** layer w.r.t. the hidden one.
 
 ## General architecture
 
@@ -71,13 +67,11 @@ $$
 
 i.e. [[Ridge Regression]] on the hidden representation. L1 is also possible.
 
-Reference models: **RVFL**, **ELM**, RBF networks with random centres.
-
 ## Why it works, and the debate
 
 - A large set of hidden units non-linearly expands the dimension of the input vector, making the data more separable, and provides a sufficient basis expansion to solve the task - with a theoretical ground, including universal approximation results.
 - **Extremely efficient**, since training is restricted to the last layer.
-- Many variants: incremental learning adding hidden neurons (compare [[Cascade Correlation]]), pruning, ... often linked to older research under different names.
+- Many variants: incremental learning adding hidden neurons (compare [[Cascade Correlation]]), pruning, ecc.
 - **But:** focused models with a smaller number of *adaptive* basis functions, trained on the specific task, are still arguably "more elegant". There is a real debate here - it is worth knowing the **"random features" vs "learned features"** distinction.
 
 ## Where it is used

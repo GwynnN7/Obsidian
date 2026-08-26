@@ -15,11 +15,10 @@ A **rational agent** selects the action that maximizes a specified **performance
 
 A structured methodology for specifying an agent:
 
-| | |
-|---|---|
 | **P** | Performance measure |
-| **E** | Environment |
-| **A** | Actuators |
-| **S** | Sensors |
+| ----- | ------------------- |
+| **E** | Environment         |
+| **A** | Actuators           |
+| **S** | Sensors             |
 
 Related: [[Environments]], [[Agent Architectures]].

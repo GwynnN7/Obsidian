@@ -1,1 +1,5 @@
-{}
+{
+  "baseFontSizeAction": true,
+  "nativeMenus": false,
+  "baseFontSize": 17
+}

@@ -4,7 +4,7 @@ tags: [artificial-intelligence-fundamental, agents]
 
 # Environments
 
-The environment defines the context of the agent's operation. Six dichotomies:
+The environment defines the context of the agent's operation.
 
 | Dichotomy | Meaning |
 |---|---|

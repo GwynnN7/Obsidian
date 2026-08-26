@@ -9,7 +9,7 @@ The number of hidden units is a [[Model Selection and Assessment|model selection
 - **Constructive / incremental:** start minimal, add units and connections during training (Tower, Tiling, Upstart for classification; Cascade Correlation for both regression and classification).
 - **Pruning:** start with a large network and progressively remove weights or units.
 
-## The CC algorithm (Fahlman & Lebiere, 1991)
+## The CC algorithm
 
 1. Start with $N_0$, a network **without hidden units**. Train it, compute the error. If it cannot solve the problem, go to $N_1$.
 2. In $N_1$ add a hidden unit whose **correlation (covariance) with the residual error** of $N_0$ is maximized, by training its weights.

@@ -25,8 +25,6 @@ $$
 
 Divide by $l$ to get the mean (LMS). This is a quadratic, convex function $\to$ a minimum always exists (not necessarily unique), no local minima.
 
-Univariate case ($h_w(x)=w_1x+w_0$) is the classic straight-line fit, solvable since Gauss/Legendre (~1795).
-
 ## Two learning algorithms
 
 ### 1. Direct: [[Normal Equation]]
@@ -83,7 +81,7 @@ For training we still use the squared error on $w^Tx$ (not on $h(x)$), so the lo
 ## Limits
 
 - Exact solutions only for linearly separable sets. XOR is the classic counterexample (4 points, no separating line).
-- Too rigid for anything with real structure - see the scenario-1 vs scenario-2 example (gaussian classes vs mixture of 10 gaussians).
+- Too rigid for anything with real structure.
 - Way out: [[Linear Basis Expansion]], or adaptive basis functions = [[Neural Networks]].
 
 ## Complexity control
@@ -97,9 +95,5 @@ For training we still use the squared error on $w^Tx$ (not on $h(x)$), so the lo
 
 - **Language bias:** $H$ is the set of linear functions - very restrictive.
 - **Search bias:** ordered search guided by least-squares minimization.
-
-## Other linear-ish learners
-
-Linear Discriminant Analysis, logistic regression (models $P(y|x)$).
 
 Related: [[Classification]], [[Regression]], [[k-NN]], [[Perceptron]].

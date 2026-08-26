@@ -17,7 +17,7 @@ Prior knowledge feeds into steps 2 and 3.
 
 ## Warnings
 
-- **Causality is assumed, not discovered.** Data analysis alone cannot infer it - the formal treatment is the do-operator of [[Causal Networks]]. People in Florida are older on average than in other US states; that does not mean the Florida climate makes people live longer.
+- **Causality is assumed, not discovered.** Data analysis alone cannot infer it - the formal treatment is the do-operator of [[Causal Networks]].
 - Uninformative input variables $\to$ poor modelling $\to$ poor results.
 - Powerful models fit "garbage" data too, so a flexible model raises the risk rather than lowering it.
 - Badly validated results are misleading both in the prediction and in the interpretation.

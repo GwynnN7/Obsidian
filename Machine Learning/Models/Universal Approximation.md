@@ -4,8 +4,6 @@ tags: [machine-learning, models, neural-networks]
 
 # Universal Approximation
 
-(Cybenko 1989, Hornik et al. 1993, ...)
-
 - A **single hidden-layer** network with logistic activations can approximate arbitrarily well every continuous function on hypercubes, provided enough hidden units.
 - An MLP can approximate arbitrarily well every input-output mapping, provided enough units in the hidden layers.
 

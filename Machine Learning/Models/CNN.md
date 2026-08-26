@@ -4,7 +4,7 @@ tags: [machine-learning, models, neural-networks]
 
 # CNN
 
-Convolutional Neural Networks (LeNet / ConvNet). The point is **architecture design as a way to put prior information into a NN** - a not-fully-connected feed-forward NN built for a specific kind of problem.
+Convolutional Neural Networks. The point is **architecture design as a way to put prior information into a NN** - a not-fully-connected feed-forward NN built for a specific kind of problem.
 
 ## The motivating problem
 
@@ -67,25 +67,6 @@ Consequences:
 
 - Typically [[Backpropagation]], with the usual heuristics ([[Hyperparameter Guidelines]]) plus specializations for weight sharing and pooling.
 - With huge networks and large amounts of data, many hyperparameters are fixed by experience or expert suggestion rather than by search - running [[Cross Validation]] over a large hyperparameter space would be far too expensive.
-
-## Some history / numbers
-
-- **LeCun's ZIP-code networks (1989):** five architectures, from no hidden layer up to Net-5 with 5194 connections but only **1060 weights** (weight sharing) and a 1.6% misclassification rate. Training error was zero for all of them on a reduced set (~300 images), so the test curve is what separates them.
-- **MNIST** (60k train / 10k test) became the standard benchmark. Progress: 0.35% (2011), 0.23% with a committee of conv nets (2012), 0.21% (2016).
-  > [!warning]
-  > Too many uses of the same test data for these to still be significant, especially for improvements of 0.1% - exactly the leakage problem of [[Validation Pitfalls]].
-- **Plain deep MLP (2010):** "good old on-line backprop" reached 0.35% on MNIST with a 6-layer 784-2500-2000-1500-1000-500-10 net, 12 million weights, 2 hours on GPU. What it needed: many layers, many neurons, **numerous deformed training images** (data augmentation as complexity control - see [[Regularization]]) and GPUs.
-- **AlexNet (Krizhevsky, Sutskever, Hinton, NIPS 2012):** ImageNet, 1.3M images, 1000 classes; 60 million parameters, 500k neurons, five convolutional layers, some followed by max-pooling, two globally connected layers, a final 1000-way softmax; non-saturating neurons and an efficient GPU implementation; **dropout** to reduce overfitting in the globally connected layers. Top-5 error from ~26% to 18.9%.
-- **DeepFace (2014):** 9 layers, convolutional; trained on 4M facial images of 4000+ identities; 97.25% on "same person?" vs 97.53% for humans.
-- **Capsule networks (Sabour, Frosst, Hinton 2017):** a "capsule" is a subset of neurons in a layer that outputs both an instantiation parameter (is the entity there?) and pose parameters (position, orientation) relative to a canonical version. Uses a **routing** mechanism instead of max-pooling; better than a conv net at recognizing highly overlapping digits, without transforming image preprocessing.
-
-## Tensors and GPUs
-
-Matrix multiplication (dot product) is the typical linear operation done efficiently on GPU, parallelizing the sums and the independent products.
-
-- In programming, a **tensor** is a multi-dimensional matrix with a linear operation called `tensordot`.
-- Many kernel operations can be executed as one matrix multiplication - you could build a block matrix by hand, or simply express them as a `tensordot` between tensors (TensorFlow, NumPy).
-- That is why tensor notation is used in ML: it parallelizes many linear operations on GPUs without hand-building complex block matrices.
 
 ## Related
 

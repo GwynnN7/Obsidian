@@ -45,8 +45,8 @@ Consistent notation across all these notes. Local variations exist and are state
 ## Model-specific conventions
 
 - **Linear models / LTU:** inputs $x$, output $h(x)$, targets $y$ (regression) or $y$/$d$ (classification).
-- **Neural Networks:** if the pattern is loaded in the input layer, we use $o$ for both inputs and hidden outputs. The input to unit $t$ coming from any source $u$ through $w_{tu}$ is $o_u$ - this is the style of the [[Backpropagation]] derivation. Targets $d$ (scalar) or $d$ (vector, multi-output).
-- **SVM:** inputs $x$, output $h(x)$, targets $d$; the bias $w_0$ is denoted $b$. To match Haykin ch. 6: $l\to N$, $n\to m$, indices $i,j$ for patterns.
+- **Neural Networks:** if the pattern is loaded in the input layer, we use $o$ for both inputs and hidden outputs. The input to unit $t$ coming from any source $u$ through $w_{tu}$ is $o_u$ - this is the style of the [[Backpropagation]] derivation. Targets $d$ (scalar) or $\boldsymbol{d}$ (vector, multi-output).
+- **SVM:** inputs $x$, output $h(x)$, targets $d$; the bias $w_0$ is denoted $b$; $l\to N$, $n\to m$, indices $i,j$ for patterns.
 - **Concept learning:** $d: X\to\{0,1\}$, $h$ built with literals of propositional logic. See [[Concept Learning]].
 - **RNN:** domain becomes sequences - inputs $l(t)$, outputs $o(t)$ or $y(t)$, targets $d(t)$, and $x(t)$ denotes the **state** values.
 

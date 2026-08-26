@@ -14,7 +14,4 @@ Estimate a real-valued function from a finite set of **noisy** samples: known pa
 
 [[Linear Models]] (LMS), [[Linear Basis Expansion]] / polynomial regression, [[k-NN]] (mean of the neighbors), [[Neural Networks]], [[SVM Regression]] ($\epsilon$-insensitive).
 
-> [!note]
-> The polynomial-fitting example (target $\sin(2\pi x)$ + gaussian noise, degree $M$) is the standard illustration of [[Underfitting]] / [[Overfitting]] and of the effect of $\lambda$ - see [[Regularization]] and [[Statistical Learning Theory]].
-
 Related: [[Supervised Learning]].

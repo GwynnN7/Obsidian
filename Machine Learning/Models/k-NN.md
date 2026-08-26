@@ -56,13 +56,7 @@ k-NN directly approximates it: the conditional probability at a point is relaxed
 - **Cost is deferred to prediction:** distance from the test sample to all stored vectors, so time grows with $l$ (mitigated by indexing / approximate NN search), plus the memory to store all data.
 - **No interpretation:** no model is built, no knowledge is extracted; it does not really match the "learning" objective (a learned model can forget the examples).
 - Often you must select a subset of prototypes (e.g. by clustering) and a subset of features.
-
-## [[Curse of Dimensionality]]
-
-1. **Hard to find nearby points in high $n$.** Neighborhoods become spatially large and stop being local; shrinking them means lowering $k$ and raising the variance.
-   In a unit cube, to capture a fraction $r$ of the volume you need a subcube of side $r^{1/n}$: to capture 10% of the data you need 30% of each coordinate range in 2D, but **80%** in 10D. The other way round: side $0.3$ captures $\sim30\%$ of the volume in 1D, $9\%$ in 2D, $2.7\%$ in 3D and $\sim0.0006\%$ in 10D.
-2. **Low sampling density.** Density is proportional to $l^{1/n}$: if 100 points suffice in $\mathbb{R}^1$, you need $100^{10}$ for comparable accuracy in $\mathbb{R}^{10}$.
-3. **Irrelevant features.** If the target depends on 2 out of 20 features, the "similarity" is dominated by the 18 irrelevant ones. Fix: feature weighting (stretch the axes) or [[Feature Selection]].
+- [[Curse of Dimensionality]]
 
 ## Extensions
 
