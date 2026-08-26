@@ -1,0 +1,227 @@
+{
+  "main": {
+    "id": "e4ee880507c1e8da",
+    "type": "split",
+    "children": [
+      {
+        "id": "b4361933a3e8cec0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3622bd35cd436acf",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c34ed08b28f1b95f",
+    "type": "split",
+    "children": [
+      {
+        "id": "e3ddc868a09b7d1f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "10f195b1f3d77987",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "28ee4502507bcbce",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e2665bf897ad216a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "fa71786e6663b03b",
+    "type": "split",
+    "children": [
+      {
+        "id": "d5d2c328b70c4f1a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "88a0d5b796cb87f1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Machine Learning/Machine Learning.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "d12357ec2e96300c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Machine Learning/Machine Learning.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "c34e59f953f19448",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "7e7bd3530ca195a1",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "c54ea098a6f216dd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Machine Learning/Machine Learning.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "3622bd35cd436acf",
+  "lastOpenFiles": [
+    "Machine Learning/Training/Momentum.md",
+    "Machine Learning/Training/Gradient Descent.md",
+    "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Causal Networks.md",
+    "Artificial Intelligence.md",
+    "Artificial Intelligence Fundamentals/CSP/Tree-Structured CSPs.md",
+    "Artificial Intelligence Fundamentals/CSP/Constraint Satisfaction Problems.md",
+    "Artificial Intelligence Fundamentals/CSP/Backtracking Search.md",
+    "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Hidden Markov Models.md",
+    "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Reasoning over Time.md",
+    "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Bayesian Network Inference.md",
+    "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Bayesian Networks.md",
+    "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Probability and Decision Theory.md",
+    "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Probabilistic Reasoning.md",
+    "Artificial Intelligence Fundamentals/Planning/Advanced Planning.md",
+    "Artificial Intelligence Fundamentals/Planning/Planning Heuristics.md",
+    "Artificial Intelligence Fundamentals/Planning/PDDL.md",
+    "Artificial Intelligence Fundamentals/Planning/Classical Planning.md",
+    "Artificial Intelligence Fundamentals/Planning/Planning.md",
+    "Artificial Intelligence Fundamentals/Artificial Intelligence Fundamentals.md",
+    "Machine Learning/Machine Learning.md",
+    "Machine Learning/To Do/Deep Learning.md",
+    "Artificial Intelligence Fundamentals/Knowledge and Logic/FOL Inference.md",
+    "Artificial Intelligence Fundamentals/Knowledge and Logic/First-Order Logic.md",
+    "Artificial Intelligence Fundamentals/Knowledge and Logic/Propositional Logic.md",
+    "Artificial Intelligence Fundamentals/Knowledge and Logic/Logical Inference.md",
+    "Artificial Intelligence Fundamentals/Knowledge and Logic/Entailment and Models.md",
+    "Artificial Intelligence Fundamentals/Probabilistic Reasoning",
+    "Artificial Intelligence Fundamentals/Planning",
+    "Artificial Intelligence Fundamentals/Knowledge and Logic",
+    "Artificial Intelligence Fundamentals/Artificial Life",
+    "Artificial Intelligence Fundamentals/Games and Multiagent",
+    "Artificial Intelligence Fundamentals/CSP",
+    "Artificial Intelligence Fundamentals/Agents and Search",
+    "Untitled.canvas",
+    "sedoP5z53",
+    "Artificial Intelligence Fundamentals",
+    "Machine Learning/To Do"
+  ]
+}
