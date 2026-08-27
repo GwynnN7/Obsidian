@@ -26,6 +26,13 @@ Central hub for the AI subjects. One branch per subject.
 | **Algorithm Engineering**                |                                          | 9   |      |
 | **Advanced Programming**                 |                                          | 9   |      |
 
+### Quick entry
+
+| Subject | One page | Canvas |
+|---|---|---|
+| Machine Learning | [[ML Essentials]] | [[ML Map]] |
+| AI Fundamentals | [[AIF Essentials]] | [[AIF Map]] |
+
 ## Cross-subject threads
 
 Things that show up in more than one subject - link them here as they appear.

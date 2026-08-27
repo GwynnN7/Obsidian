@@ -9,7 +9,15 @@ tags:
 
 Hub. How an agent decides what to do, and how it represents what it knows.
 
-## The map
+## Three ways in
+
+| | | |
+|---|---|---|
+| **See it** | [[AIF Map]] | the canvas: the whole path as boxes and arrows |
+| **Read it** | [[AIF Essentials]] | one page: the concepts that matter, in order, with the rules |
+| **Browse it** | the table below | the shelves, when you already know what you are looking for |
+
+## The shelves
 
 | Folder | What is in it |
 |---|---|
@@ -18,18 +26,10 @@ Hub. How an agent decides what to do, and how it represents what it knows.
 | [[Games and Multiagent]] | minimax, alpha-beta, MCTS, game theory, coordination |
 | [[Artificial Life]] | evolutionary algorithms, GA, cellular automata |
 | [[Knowledge and Logic]] | knowledge-based agents, propositional and first-order logic, inference |
-| [[Planning]] | PDDL, state-space search, heuristics, scheduling |
+| [[Planning]] | PDDL, state-space search, heuristics, non-determinism, scheduling |
 | [[Probabilistic Reasoning]] | probability, Bayesian networks, inference, reasoning over time |
 
-## The thread
-
-1. **What is an agent** - [[Rational Agents]], [[Environments]], [[Agent Architectures]].
-2. **Deciding by searching** - [[Search Problems]], [[Uninformed Search]], [[Informed Search]], [[Local Search]].
-3. **Structured problems** - [[Constraint Satisfaction Problems]] and the inference that makes them tractable.
-4. **Other agents in the way** - [[Minimax]], [[Alpha-Beta Pruning]], [[Monte-Carlo Tree Search]], [[Game Theory]].
-5. **Search without gradients** - [[Evolutionary Algorithms]], [[Genetic Algorithms]], [[Evolutionary Strategies]], [[Cellular Automata]].
-6. **Knowing instead of searching** - [[Knowledge-Based Agents]], [[Propositional Logic]], [[First-Order Logic]], [[Logical Inference]].
-7. **Acting on knowledge** - [[Classical Planning]], [[PDDL]], [[Planning Heuristics]], [[Advanced Planning]].
-8. **Acting under uncertainty** - [[Probability and Decision Theory]], [[Bayesian Networks]], [[Bayesian Network Inference]], [[Reasoning over Time]].
+> [!note] Folders are just shelves
+> The **order** of the subject lives in [[AIF Essentials]] and [[AIF Map]], not in the tree.
 
 Part of [[Artificial Intelligence]].

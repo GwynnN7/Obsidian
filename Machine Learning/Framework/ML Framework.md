@@ -24,7 +24,7 @@ General frame is **learn a function from examples**. The five topis of any ML sy
 ## Paradigms
 
 - [[Supervised Learning]] - labeled examples $(x,d)$.
-- [[Unsupervised Learning]] - no labels, find structure.
+- [[Unsupervised Learning]] - no labels, find structure. It has its own folder, since most of the supervised machinery does not apply to it.
 - [[Semi-Supervised Learning]] - a mix.
 - [[Reinforcement Learning]] - learn from reward, not from step-by-step targets.
 

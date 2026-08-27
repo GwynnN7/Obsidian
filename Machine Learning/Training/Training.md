@@ -20,21 +20,34 @@ For an MLP, step 2 is done by [[Backpropagation]]: a forward pass to compute the
 > [!note] Nice interpretation
 > Backprop is a **path through the loss/weight space**. The path depends on: the data, the model, the starting point ([[Weight Initialization]]), the rate of convergence ([[Learning Rate]], [[Momentum]]), and the final point ([[Stopping Criteria]]). Together they are a control over the search in $H$.
 
-## The pieces
+> [!note] One section per subfolder
+> The three sections match the folders inside `Training/`.
 
+## Algorithm
+
+How the gradient is computed and applied.
+
+- [[Gradient Descent]] - the algorithm itself.
 - [[Delta Rule]] - the error-correction update.
 - [[Backpropagation]] - the gradient for a multilayer network.
 - [[Batch Online and Mini-Batch]] - when to update.
+- [[Optimizers]] - SGD, RMSProp, Adam, AdamW.
+
+## Knobs
+
+Everything that decides *the path* rather than the destination.
+
 - [[Learning Rate]] - how big the step is.
 - [[Momentum]] - inertia, and Nesterov.
 - [[Weight Initialization]] - where to start.
 - [[Multiple Minima]] - non-convex loss, and why it is not a disaster.
 - [[Stopping Criteria]] - when to stop.
-- [[Optimizers]] - SGD, RMSProp, Adam, AdamW.
 - [[Learning Curve]] - the plot that tells you if it is working.
 - Gradient **clipping** and the vanishing/exploding gradient across layers $\to$ [[Deep Learning]].
 
-## Complexity control
+## Complexity Control
+
+Everything that decides *how complex* the final model is allowed to be.
 
 - [[Regularization]] - penalty on the loss. The main tool.
 - [[Dropout]] - regularization by randomly dropping units.

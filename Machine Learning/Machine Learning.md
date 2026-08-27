@@ -7,32 +7,30 @@ tags:
 
 # Machine Learning
 
-Machine Learning Hub. [[ML Framework]] is the starting point for a logic order.
-## The map
+Machine Learning hub.
 
-| Folder | What is in it |
-|---|---|
-| [[ML Framework\|Framework]] | data, tasks, paradigms, loss, notation, workflow |
-| [[Theory]] | inductive bias, generalization, SLT, bias-variance, ensembles |
-| [[Models]] | linear, k-NN, neural networks |
-| [[Training]] | gradient descent, backprop, all the training knobs |
-| [[Validation]] | model selection and assessment, CV, metrics |
-| [[Hyperparameter Guidelines\|Guidelines]] | the practical do / don't reference |
+## Three ways in
 
-## The thread
+| | | |
+|---|---|---|
+| **See it** | [[ML Map]] | the canvas: the whole path as boxes and arrows |
+| **Read it** | [[ML Essentials]] | one page: the concepts that matter, in order, with the rules |
+| **Browse it** | the table below | the shelves, when you already know what you are looking for |
 
-1. **What is the problem** - [[ML Framework]], [[Loss Functions]], [[Generalization and Risk]].
-2. **Why it works** - [[Concept Learning]], [[Hypothesis Space and Inductive Bias]], [[No Free Lunch]].
-3. **Simple Models** - [[Linear Models]] (rigid), [[k-NN]] (flexible but local).
-4. **Flexible + Controllable** - [[Neural Networks]], [[Perceptron]], [[Backpropagation]].
-5. **Specialized architectures** - [[CNN]] (space), [[RNN]] (time), [[Randomized Neural Networks]] (skip training the hidden layer).
-6. **Maximum margin** - [[SVM]], [[Kernel Methods]], [[SVM Regression]].
-7. **The theory of the trade-off** - [[Statistical Learning Theory]], [[VC Dimension]], [[Structural Risk Minimization]], [[Bias-Variance Tradeoff]].
-8. **How to do it right** - [[Validation]], [[Model Selection and Assessment]], [[Cross Validation]].
-9. **How to do it in practice** - [[Hyperparameter Guidelines]].
-10. **Without a teacher** - [[Unsupervised Learning]], [[Vector Quantization]], [[K-Means]], [[SOM]].
-11. **Going deep** - [[Deep Learning]], [[Representation Learning]], [[Distributed Representation]].
-12. **Beyond vectors** - [[Structured Domain Learning]], [[Deep Graph Networks]], [[Graph Echo State Networks]].
+## The shelves
+
+| Folder | What is in it | Inside |
+|---|---|---|
+| [[ML Framework\|Framework]] | the setup | data, tasks, paradigms, loss, notation, workflow |
+| [[Theory]] | why learning works | `Inductive Bias`, `Generalization`, `Capacity and Bounds` |
+| [[Models]] | what can be represented | `Linear and Kernel`, `Instance-Based`, `Neural Networks`, `Architectures`, `Deep Learning`, `Structured Data`, `Ensembles` |
+| [[Training]] | how the weights are found | `Algorithm`, `Knobs`, `Complexity Control` |
+| [[Validation]] | how you know it works | `Schemas`, `Metrics`, `Search` |
+| [[Unsupervised Learning]] | the branch with no teacher | clustering, vector quantization, maps |
+| [[Hyperparameter Guidelines]] | the practical do / don't reference | - |
+
+> [!note] Folders are just shelves
+> Links do not care where a note lives, so the folders are only there to make browsing sane. The **order** of the subject lives in [[ML Essentials]] and [[ML Map]], not in the tree.
 
 ## The three things to never forget
 
@@ -44,13 +42,5 @@ Machine Learning Hub. [[ML Framework]] is the starting point for a logic order.
 
 > [!important] Bias is necessary
 > A learner with no [[Inductive Bias]] is a lookup table: it cannot generalize. Proved in [[Concept Learning]].
-
-## Notation cheat-sheet
-
-- $l$ examples, $n$ input features; $x_p$ pattern $p$, $d_p$ or $y_p$ its target.
-- $h_w(x)$: output of the model with parameters $w$; $f$: the unknown target.
-- $L(h(x),d)$: inner loss; $R_{emp}$: empirical risk; $R$: true risk.
-- $\operatorname{Loss}=$ data error $+$ penalty; **Error** $=$ the data term alone.
-- Full reference: [[Notation]].
 
 Part of [[Artificial Intelligence]].

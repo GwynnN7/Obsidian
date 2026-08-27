@@ -12,6 +12,5 @@ tags: [artificial-intelligence-fundamental, moc]
 - [[Uninformed Search]] - BFS, Dijkstra, DFS.
 - [[Informed Search]] - greedy, A*, admissibility.
 - [[Local Search]] - hill climbing, simulated annealing, beam search.
-- [[Planning in Non-Deterministic Environments]] - belief states, AND-OR trees.
 
 Part of [[Artificial Intelligence Fundamentals]].

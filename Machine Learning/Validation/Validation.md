@@ -29,19 +29,35 @@ Hence: don't use VL results as a risk estimate, and don't use TS results for mod
 - **Analytically:** AIC/BIC (limited to models linear in the parameters), MDL, SRM + VC-dim $\to$ [[Statistical Learning Theory]].
 - **By resampling:** [[Cross Validation]] (hold-out, K-fold, ...), [[Bootstrap]]. This is what we do in practice.
 
-## The notes
+> [!note] One section per subfolder
+> The three sections match the folders inside `Validation/`.
+
+## Schemas
+
+How the data are split, and who is allowed to see what.
 
 - [[Model Selection and Assessment]] - the two aims, the data splits, the roles.
 - [[Validation Schemas]] - the meta-algorithms, written out.
 - [[Cross Validation]] - K-fold, LOO, variants, nested CV.
+- [[Bootstrap]], [[Stratified Sampling]] - how to resample and how to split.
 - [[Validation Pitfalls]] - the counterexample and the FAQ / typical errors.
-- [[Hyperparameter Search]] - [[Grid Search]], [[Random Search]].
-- [[Stratified Sampling]], [[Bootstrap]] - how to split/resample.
-- [[Feature Selection]] - and why it belongs **inside** the selection process.
 
 ## Metrics
 
-[[Classification Metrics]], [[Confusion Matrix]], [[ROC Curve]], [[Regression Metrics]], [[Mean Squared Error]].
+What number you actually report.
+
+- [[Mean Squared Error]], [[Regression Metrics]].
+- [[Classification Metrics]], [[Confusion Matrix]], [[ROC Curve]].
+
+## Search
+
+Choosing the hyperparameters, inside the schema above.
+
+- [[Hyperparameter Search]] - the general problem.
+- [[Grid Search]], [[Random Search]] - the two strategies.
+- [[Feature Selection]] - and why it belongs **inside** the selection process.
+
+Practical defaults: [[Hyperparameter Guidelines]].
 
 > [!note]
 > These schemas are a very useful guide, but **not a recipe book**: the point is to rationalize the problem, not to apply a ritual. Then be reasonable - most of the running time depends on the validation choices, so avoid both a too rough evaluation and a never-ending one. When in doubt, use them: better than fantasy.
