@@ -12,6 +12,6 @@ The assumptions a learner uses to generalize beyond the observed data.
 Two facts to keep together:
 
 1. Bias is not only an efficiency trick - it is **needed** for generalization ([[Concept Learning]]).
-2. Every state-of-the-art ML approach has one; the useful question is *which* bias a model has.
+2. Every ML approach has one; the useful question is *which* bias a model has.
 
 Full discussion in [[Hypothesis Space and Inductive Bias]].

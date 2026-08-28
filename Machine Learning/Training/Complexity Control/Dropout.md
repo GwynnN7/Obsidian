@@ -18,7 +18,7 @@ $$
 If we drop units during training, the expected input to the next layer is smaller than at test time. Two equivalent fixes:
 
 - **Classic:** at test time multiply the outgoing weights by $(1-p)$.
-- **Inverted dropout** (what libraries do): during training divide the surviving activations by $(1-p)$, so test time needs no change at all.
+- **Inverted dropout**: during training divide the surviving activations by $(1-p)$, so test time needs no change at all.
 
 > [!warning]
 > Dropout must be **off** at inference. Forgetting to switch it off is a classic source of "my test results are worse and noisy".

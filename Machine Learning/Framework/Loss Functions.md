@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, framework]
+tags: [machine-learning, theory]
 ---
 
 # Loss Functions
@@ -34,7 +34,7 @@ The mean is the fraction of misclassified patterns (20 out of 100 $\to$ 20% erro
 
 - Piecewise-constant losses are hard to optimize, so for training we usually replace them with a smooth surrogate (MSE, or cross-entropy). See [[Linear Models]].
 
-## Clustering / vector quantization
+## Clustering / Vector quantization
 
 $$
 L(h(x_p))=(x_p-h(x_p))\cdot(x_p-h(x_p)),
@@ -55,6 +55,6 @@ related to maximizing the (log) likelihood.
 > [!important]
 > Once a penalty term enters the picture, keep the two names apart:
 > - **Loss**: the objective actually minimized during training, $\text{Loss}(w)=\text{data error}+\text{penalty}$.
-> - **Error / Risk**: the data term alone, the number you report in tables and plots because it is what the user cares about.
+> - **Error / Risk**: the data term alone, the number you report in tables and plots.
 >
 > See [[Regularization]].

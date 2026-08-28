@@ -1,22 +1,26 @@
 ---
-tags: [machine-learning, training, hyperparameter]
+tags: [machine-learning, training, algorithms]
 ---
 
 # Optimizers
 
-All of these are variants of [[Gradient Descent]]: they differ in *how* the raw gradient $g=\partial \text{Loss}/\partial w$ is turned into a step. The baseline you should always start from - and compare against - is **SGD with [[Momentum]]**.
+All of these are variants of [[Gradient Descent]]: they differ in *how* the raw gradient $g=\partial \text{Loss}/\partial w$ is turned into a step.
 
 ## The family
 
-| | Idea | Extra state per weight | Typical hyperparameters |
-|---|---|---|---|
-| **SGD** | step along $-g$ | none | $\eta$ |
-| **SGD + [[Momentum]]** | add inertia from past steps | 1 (velocity) | $\eta$, $\alpha\in[0.5,0.9]$ |
-| **Nesterov** | look ahead before measuring $g$ | 1 | $\eta$, $\alpha$ |
-| **AdaGrad** | per-weight $\eta$, divided by the accumulated $g^2$ | 1 | $\eta$ |
-| **RMSProp** | same, but a *moving average* of $g^2$ | 1 | $\eta$, $\rho\approx0.9$ |
-| **Adam** | RMSProp + momentum + bias correction | 2 | $\eta$, $\beta_1$, $\beta_2$ |
-| **AdamW** | Adam with **decoupled** weight decay | 2 | $\eta$, $\beta_1$, $\beta_2$, $\lambda$ |
+Every one of them computes the same $g$ and differs only in the step it builds from it.
+
+| | Step $\Delta w$ | Idea | State | Hyperparameters |
+|---|---|---|---|---|
+| **SGD** | $-\eta g$ | follow the gradient | none | $\eta$ |
+| **SGD + [[Momentum]]** | $\alpha\,\Delta w_{old}-\eta g$ | inertia from past steps | 1 (velocity) | $\eta$, $\alpha\in[0.5,0.9]$ |
+| **Nesterov** | as above, but $g$ measured **after** the momentum step | look ahead | 1 | $\eta$, $\alpha$ |
+| **AdaGrad** | $-\dfrac{\eta}{\sqrt{r}+\epsilon}g$, &nbsp;$r\leftarrow r+g^2$ | per-weight $\eta$ from accumulated $g^2$ | 1 | $\eta$ |
+| **RMSProp** | same step, &nbsp;$r\leftarrow\rho r+(1-\rho)g^2$ | *forget* old gradients | 1 | $\eta$, $\rho\approx0.9$ |
+| **Adam** | $-\eta\dfrac{\hat m}{\sqrt{\hat r}+\epsilon}$ | RMSProp + momentum + bias correction | 2 | $\eta$, $\beta_1$, $\beta_2$ |
+| **AdamW** | Adam step $-\ \eta\lambda w$ | Adam with **decoupled** weight decay | 2 | $\eta$, $\beta_1$, $\beta_2$, $\lambda$ |
+
+Read down the first column and the whole family is one line each; the sections below say where each piece comes from.
 
 ## AdaGrad
 

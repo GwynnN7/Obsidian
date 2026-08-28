@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, theory]
 ---
 
 # Representation Learning

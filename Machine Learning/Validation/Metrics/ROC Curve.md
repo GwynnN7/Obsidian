@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, validation, metrics]
+tags: [machine-learning, validation]
 ---
 
 # ROC Curve

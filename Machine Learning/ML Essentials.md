@@ -1,12 +1,12 @@
 ---
-tags: [machine-learning, moc, essentials]
+tags: [machine-learning, moc]
 ---
 
 # ML Essentials
 
 The whole subject on one page, in the order that makes it make sense. Every stage is a question, a couple of notes, and the one thing to keep.
 
-The visual version of the same path is [[ML Map]]. The folder-by-folder view is [[Machine Learning]].
+The visual version of the same path is [[ML Canvas.canvas]]. The folder-by-folder view is [[Machine Learning]].
 
 ## The five lines
 
@@ -22,7 +22,7 @@ The visual version of the same path is [[ML Map]]. The folder-by-folder view is 
 
 *What are the pieces of any ML system?* Data, task, model, learning algorithm, validation.
 
-$\to$ [[ML Framework]], [[Data and Preprocessing]], [[Notation]]
+$\to$ [[ML Framework]], [[Data and Preprocessing]], [[Notation]], [[Vector and Matrix Algebra]]
 
 **Keep:** the model defines $H$, the algorithm searches $H$, validation says whether the search was worth anything.
 

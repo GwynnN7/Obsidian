@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, logic]
+tags: [artificial-intelligence-fundamental, algorithms]
 ---
 
 # Logical Inference

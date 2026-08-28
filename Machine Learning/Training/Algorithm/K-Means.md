@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models]
+tags: [machine-learning, algorithms]
 ---
 
 # K-Means
@@ -54,9 +54,6 @@ $$
 $$
 
 a vector, computed from vectors, divided by the number of cluster members.
-
-> [!note] Exercise
-> Derive the batch algorithm from the on-line one: sum (average) the on-line $\Delta \boldsymbol{w}$ over the patterns with $\eta=1$, and apply it to obtain $\boldsymbol{w}_{new}=\boldsymbol{w}_{old}+\dots$
 
 ## Pros and cons
 

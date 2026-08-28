@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, agents]
+tags: [artificial-intelligence-fundamental, models]
 ---
 
 # Agent Architectures

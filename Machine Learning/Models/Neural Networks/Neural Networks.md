@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # Neural Networks
@@ -124,6 +124,22 @@ Two ways of training a single unit:
 - Perceptron update with bipolar labels on a misclassified pattern: $w_{new}=w+\eta\,d\,x$ (Hebbian form).
 - [[Delta Rule]] (error correction form): $w_{new}=w+\eta(d-out)x$.
 - Using a sigmoid $f_\sigma$ bridges the two: $\delta_p=(d_p-o(x_p))f'_\sigma$ goes to zero for correct, saturated outputs, so LMS starts behaving like the perceptron rule too.
+
+## Strengths and critical points
+
+**In favour**
+
+- **Neural plausibility** - a loose one, but the inspiration is real.
+- **Distributed representation of knowledge:** what is learnt is held compactly in the weight matrices, not in one place $\to$ [[Distributed Representation]].
+- **Fault tolerance / robustness**, a direct consequence of the distributed representation: damaging one weight degrades the answer, it does not delete a fact.
+- **Adaptation to a changing (non-stationary) environment**, since on-line learning is possible - continual learning. That brings the **stability-plasticity dilemma**: keep adapting and old knowledge is overwritten, stop adapting and new data is ignored.
+
+**Against**
+
+- **Black-box problem:** the acquired knowledge is hard to interpret and hard to hand to a human expert. This is the *explainability* (XAI) issue, and it is attacked from several sides: projecting or clustering the internal representations, sensitivity analysis of the output w.r.t. each input, layer-wise relevance propagation (which also works for deep nets), and extracting symbolic rules from a trained model.
+- **Architectural design** is not given by the theory: hence constructive methods ([[Cascade Correlation]]), pruning, and models that fix the capacity question differently ([[SVM]]).
+- **Dependence on the training realization:** initialization, hyperparameters and the stochastic path all move the final solution - see [[Multiple Minima]] and [[Weight Initialization]].
+- **Missing data** is not handled natively; you fall back on removal or imputation $\to$ [[Data and Preprocessing]].
 
 ## Related
 

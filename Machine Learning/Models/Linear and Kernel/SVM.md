@@ -12,11 +12,57 @@ Support Vector Machines. Three ideas stacked on top of each other:
 
 Notation: $N$ examples (was $l$), $m$ input dimension (was $n$), $b$ instead of $w_0$, indices $i,j$ over patterns. See [[Notation]].
 
-We start with the **hard margin** case, assuming linearly separable data and no errors.
+## The result
+
+The trained model, in the form it is used:
+
+$$
+h(\boldsymbol{x})=\operatorname{sign}\big(g(\boldsymbol{x})\big),
+\qquad
+g(\boldsymbol{x})=\sum_{i=1}^{N_s}\alpha_{o,i}\,d_i\,k(\boldsymbol{x}_i,\boldsymbol{x})+b_o
+$$
+
+summed over the $N_s$ **support vectors** only, with $k(\boldsymbol{x}_i,\boldsymbol{x})=\boldsymbol{x}_i^T\boldsymbol{x}$ in the linear case. The margin it achieves is
+
+$$
+\boxed{\ \rho=\frac{2}{\lVert \boldsymbol{w}_o\rVert}\ }
+\qquad\Longrightarrow\qquad
+\text{maximize } \rho \iff \text{minimize } \lVert \boldsymbol{w}\rVert^2 .
+$$
+
+The two problems - what you write down, and what you actually solve:
+
+| | primal (what it means) | dual (what you solve) |
+|---|---|---|
+| **objective** | minimize $\tfrac12\boldsymbol{w}^T\boldsymbol{w}+C\sum_i\xi_i$ | maximize $Q(\alpha)=\sum_i\alpha_i-\frac12\sum_{i,j}\alpha_i\alpha_j d_i d_j\,\boldsymbol{x}_i^T\boldsymbol{x}_j$ |
+| **constraints** | $d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge1-\xi_i$, $\ \xi_i\ge0$ | $\sum_i\alpha_i d_i=0$, $\ 0\le\alpha_i\le C$ |
+| **unknowns** | $\boldsymbol{w}\in\mathbb{R}^m$, $b$, $\boldsymbol{\xi}$ | $\boldsymbol{\alpha}\in\mathbb{R}^N$ |
+| **cost scales with** | the input dimension $m$ | the number of patterns $N$ |
+
+**Hard margin** is the same thing with $\xi_i\equiv0$ and no upper bound on the multipliers (formally $C\to\infty$).
+
+> [!important] The three facts to carry away
+> 1. **Convex QP.** The objective is quadratic and convex, the constraints linear $\to$ training always reaches the **global** optimum. No local minima, no initialization, no learning rate.
+> 2. **The data enter only through dot products** $\boldsymbol{x}_i^T\boldsymbol{x}_j$ $\to$ this is the door to [[Kernel Methods]].
+> 3. **The solution is sparse.** $\alpha_i=0$ for every non-support vector, so the hyperplane depends only on the points at the boundary.
+
+### Recipe
+
+1. Choose $C$ and the kernel $k$ with its parameters.
+2. Compute the kernel matrix $\boldsymbol{K}$, with $K_{ij}=k(\boldsymbol{x}_i,\boldsymbol{x}_j)$.
+3. Solve the dual QP $\to$ $\{\alpha_{o,i}\}$. Generic QP solvers work; the dedicated one is **SMO** (Sequential Minimal Optimization).
+4. $\boldsymbol{w}_o=\sum_i\alpha_{o,i}d_i\boldsymbol{x}_i$ - conceptually, but never computed in the kernel case.
+5. $b_o=d_j-\sum_i\alpha_{o,i}d_i\,k(\boldsymbol{x}_i,\boldsymbol{x}_j)$ for any $j$ with $0<\alpha_j<C$, or averaged over all such $j$ for numerical stability.
+6. Classify a new $\boldsymbol{x}$ with $\operatorname{sign}(g(\boldsymbol{x}))$.
+
+> [!note]
+> $\boldsymbol{w}_o$ is never needed explicitly - only the multipliers and the dot products. That is exactly what makes the kernel version possible: $\boldsymbol{w}$ lives in the feature space and can be enormous or infinite-dimensional, while $\boldsymbol{\alpha}$ always has $N$ components.
 
 ---
 
-## Separating hyperplane
+## Definitions
+
+### Separating hyperplane
 
 Given $T=\{(\boldsymbol{x}_i,d_i)\}_{i=1}^{N}$, find a hyperplane $\boldsymbol{w}^T\boldsymbol{x}+b=0$ with
 
@@ -29,7 +75,7 @@ $$
 
 Same object as the LTU of [[Linear Models]] - what changes is *which* of the infinitely many separating hyperplanes we pick.
 
-## Margin, and the optimal hyperplane
+### Margin, and the optimal hyperplane
 
 The **separation margin** $\rho$ is (twice) the distance between the hyperplane and the closest data point - a "safe zone". Different separating hyperplanes give different margins.
 
@@ -37,7 +83,7 @@ The **optimal hyperplane** $\boldsymbol{w}_o^T\boldsymbol{x}+b_o=0$ is the one t
 
 ### Canonical representation
 
-Using the scaling freedom of $\boldsymbol{w}$ and $b$ (see [[Linear Models]]), rescale so that the closest points satisfy $\lvert g(\boldsymbol{x}_i)\rvert=1$:
+Using the scaling freedom of $\boldsymbol{w}$ and $b$ (see [[Vector and Matrix Algebra]]), rescale so that the closest points satisfy $\lvert g(\boldsymbol{x}_i)\rvert=1$:
 
 $$
 \boldsymbol{w}^T\boldsymbol{x}_i+b\ge 1 \ \text{ if } d_i=+1,\qquad \boldsymbol{w}^T\boldsymbol{x}_i+b\le -1 \ \text{ if } d_i=-1
@@ -52,98 +98,33 @@ $$
 > [!important] Support vector
 > A **support vector** $\boldsymbol{x}^{(s)}$ is a point that satisfies this **exactly**: $d^{(s)}(\boldsymbol{w}^T\boldsymbol{x}^{(s)}+b)=1$. They are the closest data points to the hyperplane.
 
-### Deriving $\rho=2/\lVert \boldsymbol{w}_o\rVert$
+### Slack variables, and what they mean
 
-$\boldsymbol{w}_o$ is orthogonal to the hyperplane. Writing a point as $\boldsymbol{x}=\boldsymbol{x}_p+r\frac{\boldsymbol{w}_o}{\lVert \boldsymbol{w}_o\rVert}$ (with $\boldsymbol{x}_p$ its projection and $r$ the signed distance) and evaluating $g$:
-
-$$
-g(\boldsymbol{x})=g(\boldsymbol{x}_p)+r\,\boldsymbol{w}_o^T\frac{\boldsymbol{w}_o}{\lVert \boldsymbol{w}_o\rVert}=r\frac{\lVert \boldsymbol{w}_o\rVert^2}{\lVert \boldsymbol{w}_o\rVert}=r\lVert \boldsymbol{w}_o\rVert
-\quad\Longrightarrow\quad
-r=\frac{g(\boldsymbol{x})}{\lVert \boldsymbol{w}_o\rVert}
-$$
-
-For a positive support vector $g(\boldsymbol{x}^{(s)})=1$, so its distance is $\frac{1}{\lVert \boldsymbol{w}_o\rVert}=\frac{\rho}{2}$, giving
+Real data are noisy or not separable. Introduce non-negative **slack variables** $\xi_i\ge0$:
 
 $$
-\boxed{\ \rho=\frac{2}{\lVert \boldsymbol{w}_o\rVert}\ }
-\qquad\Longrightarrow\qquad
-\text{maximize } \rho \iff \text{minimize } \lVert \boldsymbol{w}\rVert .
+d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge1-\xi_i \qquad \forall i .
 $$
 
-## The optimization problem
+A support vector now satisfies it exactly: $d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)=1-\xi_i$.
 
-### Primal form (hard margin)
+| $\xi_i$ | where the point is |
+|---|---|
+| $\xi_i=0$ | outside or on the margin - correctly classified |
+| $0<\xi_i\le1$ | inside the margin, still on the right side |
+| $\xi_i>1$ | on the wrong side - a classification error |
 
-Find $w,b$ minimizing
+$C$ is the **regularization hyperparameter** trading empirical risk against the capacity term:
 
-$$
-\Psi(w)=\tfrac12 \boldsymbol{w}^Tw
-$$
-
-subject to (zero classification errors)
-
-$$
-d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge1 \quad \forall i=1,\dots,N .
-$$
-
-- $\Psi$ is **quadratic and convex** in $\boldsymbol{w}$, the constraints are **linear** $\to$ a convex quadratic program: training always finds a **global** minimum.
-- The cost of solving it in this form scales with the **input dimension $m$**.
-
-### Dual form
-
-Build the Lagrangian with multipliers $\alpha_i\ge0$:
-
-$$
-J(w,b,\alpha)=\tfrac12 \boldsymbol{w}^Tw-\sum_{i=1}^{N}\alpha_i\big(d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)-1\big)
-$$
-
-to be minimized w.r.t. $w,b$ and maximized w.r.t. $\alpha$ - the solution is a **saddle point** of $J$. Setting the derivatives to zero:
-
-$$
-\frac{\partial J}{\partial w}=0 \Rightarrow w=\sum_{i=1}^{N}\alpha_i d_i \boldsymbol{x}_i,
-\qquad
-\frac{\partial J}{\partial b}=0 \Rightarrow \sum_{i=1}^{N}\alpha_i d_i=0 .
-$$
-
-Substituting back gives the dual:
-
-> **Dual problem.** Maximize
-> $$Q(\alpha)=\sum_{i=1}^{N}\alpha_i-\frac12\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_j d_i d_j\ \underbrace{\boldsymbol{x}_i^T\boldsymbol{x}_j}_{\textbf{dot product}}$$
-> subject to $\alpha_i\ge0$ and $\sum_i\alpha_id_i=0$.
-
-Two things to notice, and they are the whole story of what comes later:
-
-- the data enter **only through dot products** $\boldsymbol{x}_i^T\boldsymbol{x}_j$ $\to$ this is the door for [[Kernel Methods]];
-- solving the dual scales with the **number of patterns $N$**, not with the space dimension. (Solvable by generic QP, or by dedicated methods such as **SMO** - Sequential Minimal Optimization.)
-
-### Kuhn-Tucker conditions and sparsity
-
-$$
-\alpha_i\big(d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)-1\big)=0 \quad\forall i
-$$
-
-- if $\alpha_i>0$ then $d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)=1$, i.e. $\boldsymbol{x}_i$ **is** a support vector;
-- if $\boldsymbol{x}_i$ is not a support vector then $\alpha_i=0$.
-
-> [!important]
-> The solution is **sparse in $\alpha$**, and the hyperplane depends **only on the support vectors**:
-> $$\boldsymbol{w}_o=\sum_{i=1}^{N_s}\alpha_{o,i}d_i\boldsymbol{x}_i .$$
-
-## Using the model
-
-1. Solve the dual $\to$ $\{\alpha_{o,i}\}$.
-2. $\boldsymbol{w}_o=\sum_i \alpha_{o,i}d_i\boldsymbol{x}_i$.
-3. $b_o=1-\boldsymbol{w}_o^T\boldsymbol{x}^{(s)}$ for a positive support vector (or average over all of them, for numerical stability).
-4. For a new $\boldsymbol{x}$: compute $g(\boldsymbol{x})=\sum_i\alpha_{o,i}d_i\,\boldsymbol{x}_i^T\boldsymbol{x}+b_o$ and classify with $\operatorname{sign}(g(\boldsymbol{x}))$.
+- **Low $C$** $\to$ many training errors allowed $\to$ possible [[Underfitting]];
+- **High $C$** $\to$ no training errors allowed $\to$ smaller margin $\to$ possible [[Overfitting]]. ($C\to\infty$ recovers the hard margin.)
 
 > [!note]
-> We never need $\boldsymbol{w}_o$ explicitly - only the multipliers and the dot products - and the sum runs over the $N_s$ support vectors. That is exactly what makes the kernel version possible.
-
----
+> Admitting points inside the margin also lets us have a **larger** margin. The point is not only tolerating errors: noise tolerance *and* a bigger safe zone.
 
 ## Why it generalizes: SRM without hyperparameters
 
-We **fixed the training error** to zero (separable case). Then minimizing $\lVert \boldsymbol{w}\rVert$ minimizes the VC dimension, hence the VC-confidence $\epsilon$ in
+In the hard-margin case we **fixed the training error** to zero. Then minimizing $\lVert \boldsymbol{w}\rVert$ minimizes the VC dimension, hence the VC-confidence $\epsilon$ in
 
 $$
 R[h]\le R_{emp}[h]+\epsilon(VC,N,\delta) .
@@ -156,6 +137,9 @@ $$
 
 So in the hard-margin case SVM performs an **automatic SRM**, folded into the training process itself, **with no hyperparameters**. That is the answer to "approach 2" of [[Structural Risk Minimization]]: fix the training error and let the algorithm minimize the capacity term.
 
+> [!warning]
+> With the soft margin **we lose the fully automatic SRM**, and Vapnik's theorem no longer holds (hard margin does not admit points inside the margin). $C$ must be chosen by [[Model Selection and Assessment|model selection]].
+
 ### Why it is an elegant approach
 
 For linearly separable data there are many solutions; the maximum-margin one gives:
@@ -167,73 +151,15 @@ For linearly separable data there are many solutions; the maximum-margin one giv
   - *nice*: it does not depend on points far from the decision boundary,
   - *less nice*: it hopes the points **at** the boundary are not the noisiest ones.
 
----
-
-## Soft margin: admitting errors
-
-Real data are noisy or not separable. Introduce non-negative **slack variables** $\xi_i\ge0$:
-
-$$
-d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge1-\xi_i \qquad \forall i .
-$$
-
-A support vector now satisfies it exactly: $d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)=1-\xi_i$.
-
-- $\xi_i=0$: outside or on the margin - correctly classified.
-- $0<\xi_i\le1$: inside the margin, still on the right side.
-- $\xi_i>1$: on the wrong side - a classification error.
-
-> [!note]
-> Admitting points inside the margin also lets us have a **larger** margin. The point is not only tolerating errors: noise tolerance *and* a bigger safe zone.
-
-### Primal (soft margin)
-
-$$
-\Psi(w,\xi)=\tfrac12 \boldsymbol{w}^Tw + C\sum_{i=1}^{N}\xi_i
-$$
-
-subject to $d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge1-\xi_i$ and $\xi_i\ge0$.
-
-**$C$ is a regularization hyperparameter** trading off empirical risk against the capacity term:
-
-- **Low $C$** $\to$ many training errors allowed $\to$ possible [[Underfitting]];
-- **High $C$** $\to$ no training errors allowed $\to$ smaller margin $\to$ possible [[Overfitting]]. ($C\to\infty$ recovers the hard margin.)
-
-> [!warning]
-> With the soft margin **we lose the fully automatic SRM**, and Vapnik's theorem above no longer holds (hard margin does not admit points inside the margin). $C$ must be chosen by [[Model Selection and Assessment|model selection]].
-
-### Dual (soft margin)
-
-Identical objective, one changed constraint:
-
-$$
-Q(\alpha)=\sum_i \alpha_i-\frac12\sum_{i,j}\alpha_i\alpha_j d_i d_j\,\boldsymbol{x}_i^T\boldsymbol{x}_j,
-\qquad
-\sum_i\alpha_id_i=0,
-\qquad
-\boxed{0\le\alpha_i\le C}
-$$
-
-The slack variables disappear from the dual; the only trace they leave is the **upper bound $C$ on the multipliers**.
-
-KT conditions become $\alpha_i(d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)+\xi_i-1)=0$ and $\mu_i\xi_i=0$ (the $\mu_i$ enforce $\xi_i\ge0$), which read as:
-
-- $0<\alpha_i<C \Rightarrow \xi_i=0$: the point sits **on the edge of the margin**;
-- $\alpha_i=C \Rightarrow \xi_i\ge0$: the point is **inside the margin** (or misclassified).
-
-Then $b_o=d_j-\sum_i \alpha_{o,i}d_i \boldsymbol{x}_i^T\boldsymbol{x}_j$ for any $j$ with $0<\alpha_j<C$ (or averaged).
-
----
-
 ## Non-linear: mapping to a feature space
 
 Map the data into a high-dimensional **feature space** where they can be linearly separated:
 
 $$
-\Phi:\mathbb{R}^{m_0}\to\mathbb{R}^{m_1},\qquad x\mapsto\Phi(\boldsymbol{x})
+\Phi:\mathbb{R}^{m_0}\to\mathbb{R}^{m_1},\qquad \boldsymbol{x}\mapsto\Phi(\boldsymbol{x})
 $$
 
-Everything above goes through with $\Phi(\boldsymbol{x}_i)$ in place of $\boldsymbol{x}_i$; the hyperplane is $\boldsymbol{w}^T\Phi(\boldsymbol{x})+b=0$, and absorbing the bias with $\phi_0(x)=1$, $w(0)=b$, the decision surface $\boldsymbol{w}^T\Phi(\boldsymbol{x})=0$ is exactly a **[[Linear Basis Expansion]]**.
+Everything above goes through with $\Phi(\boldsymbol{x}_i)$ in place of $\boldsymbol{x}_i$; the hyperplane is $\boldsymbol{w}^T\Phi(\boldsymbol{x})+b=0$, and absorbing the bias with $\phi_0(\boldsymbol{x})=1$, $w_0=b$, the decision surface $\boldsymbol{w}^T\Phi(\boldsymbol{x})=0$ is exactly a **[[Linear Basis Expansion]]**.
 
 **Example.** $\Phi:\mathbb{R}^2\to\mathbb{R}^3$, $(x_1,x_2)^T\mapsto(x_1^2,\sqrt2 x_1x_2,x_2^2)^T$: an ellipse in the input space becomes a plane in the second-order-monomial space.
 
@@ -257,6 +183,123 @@ can be drawn as a network: an input layer of size $m_0$, a hidden layer of **inn
 
 - **number of hidden units = number of support vectors**;
 - but not the same kind of unit: hidden units in a [[Neural Networks|NN]] have **adaptive** free parameters, these do not. NN = *adaptive* basis functions, SVM = *fixed* (kernel-defined) ones.
+
+---
+
+## Derivations
+
+### 1. The margin is $2/\lVert \boldsymbol{w}_o\rVert$
+
+$\boldsymbol{w}_o$ is orthogonal to the hyperplane. Write a point as its projection plus a displacement along the normal,
+
+$$
+\boldsymbol{x}=\boldsymbol{x}_p+r\frac{\boldsymbol{w}_o}{\lVert \boldsymbol{w}_o\rVert},
+$$
+
+with $\boldsymbol{x}_p$ on the hyperplane (so $g(\boldsymbol{x}_p)=0$) and $r$ the signed distance. Evaluating $g$:
+
+$$
+g(\boldsymbol{x})=g(\boldsymbol{x}_p)+r\,\boldsymbol{w}_o^T\frac{\boldsymbol{w}_o}{\lVert \boldsymbol{w}_o\rVert}=r\frac{\lVert \boldsymbol{w}_o\rVert^2}{\lVert \boldsymbol{w}_o\rVert}=r\lVert \boldsymbol{w}_o\rVert
+\quad\Longrightarrow\quad
+r=\frac{g(\boldsymbol{x})}{\lVert \boldsymbol{w}_o\rVert}
+$$
+
+For a positive support vector the canonical form gives $g(\boldsymbol{x}^{(s)})=1$, so its distance is $1/\lVert \boldsymbol{w}_o\rVert$. The margin is twice that:
+
+$$
+\rho=\frac{2}{\lVert \boldsymbol{w}_o\rVert}.
+$$
+
+Maximizing $\rho$ is therefore minimizing $\lVert \boldsymbol{w}\rVert$, and we minimize $\tfrac12\lVert \boldsymbol{w}\rVert^2$ instead - same argmin, differentiable, and the $\tfrac12$ cancels the 2 from the derivative.
+
+### 2. Primal $\to$ Lagrangian $\to$ dual
+
+Primal (hard margin): minimize $\Psi(\boldsymbol{w})=\tfrac12\boldsymbol{w}^T\boldsymbol{w}$ subject to $d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge1$ for all $i$.
+
+Build the Lagrangian, one multiplier $\alpha_i\ge0$ per constraint:
+
+$$
+J(\boldsymbol{w},b,\boldsymbol{\alpha})=\tfrac12\boldsymbol{w}^T\boldsymbol{w}-\sum_{i=1}^{N}\alpha_i\big(d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)-1\big)
+$$
+
+to be **minimized** w.r.t. $\boldsymbol{w},b$ and **maximized** w.r.t. $\boldsymbol{\alpha}$ - the solution is a **saddle point** of $J$. Setting the derivatives to zero:
+
+$$
+\frac{\partial J}{\partial \boldsymbol{w}}=0 \Rightarrow \boldsymbol{w}=\sum_{i=1}^{N}\alpha_i d_i \boldsymbol{x}_i,
+\qquad
+\frac{\partial J}{\partial b}=0 \Rightarrow \sum_{i=1}^{N}\alpha_i d_i=0 .
+$$
+
+The first is the **representer** result: the optimal $\boldsymbol{w}$ is a linear combination of the training points. Substituting both back into $J$ eliminates $\boldsymbol{w}$ and $b$ and leaves only the multipliers:
+
+> **Dual problem.** Maximize
+> $$Q(\boldsymbol{\alpha})=\sum_{i=1}^{N}\alpha_i-\frac12\sum_{i=1}^{N}\sum_{j=1}^{N}\alpha_i\alpha_j d_i d_j\ \underbrace{\boldsymbol{x}_i^T\boldsymbol{x}_j}_{\textbf{dot product}}$$
+> subject to $\alpha_i\ge0$ and $\sum_i\alpha_i d_i=0$.
+
+Two things to notice, and they are the whole story of what comes later:
+
+- the data enter **only through dot products** $\boldsymbol{x}_i^T\boldsymbol{x}_j$ $\to$ the door for [[Kernel Methods]];
+- solving the dual scales with the **number of patterns $N$**, not with the space dimension.
+
+### 3. Kuhn-Tucker: why the solution is sparse
+
+At the optimum the complementarity condition holds for every constraint:
+
+$$
+\alpha_i\big(d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)-1\big)=0 \quad\forall i
+$$
+
+A product is zero only if one factor is. Reading both directions:
+
+- if $\alpha_i>0$ then $d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)=1$, i.e. $\boldsymbol{x}_i$ **is** a support vector;
+- if $\boldsymbol{x}_i$ is not a support vector, its constraint is strictly satisfied, so $\alpha_i=0$.
+
+> [!important]
+> The solution is **sparse in $\boldsymbol{\alpha}$**, and the hyperplane depends **only on the support vectors**:
+> $$\boldsymbol{w}_o=\sum_{i=1}^{N_s}\alpha_{o,i}d_i\boldsymbol{x}_i .$$
+
+### 4. Soft margin: where the slacks go
+
+Primal: minimize $\Psi(\boldsymbol{w},\boldsymbol{\xi})=\tfrac12\boldsymbol{w}^T\boldsymbol{w}+C\sum_{i=1}^{N}\xi_i$ subject to $d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)\ge1-\xi_i$ and $\xi_i\ge0$.
+
+Now there are **two** families of multipliers: $\alpha_i$ for the margin constraints and $\mu_i$ for $\xi_i\ge0$. Differentiating the Lagrangian w.r.t. $\xi_i$ gives
+
+$$
+C-\alpha_i-\mu_i=0 \quad\Longrightarrow\quad \alpha_i=C-\mu_i,
+$$
+
+and since $\mu_i\ge0$ this is exactly $\alpha_i\le C$. So the slacks **cancel out of the dual** and leave a single trace: an upper bound on the multipliers.
+
+$$
+Q(\boldsymbol{\alpha})=\sum_i \alpha_i-\frac12\sum_{i,j}\alpha_i\alpha_j d_i d_j\,\boldsymbol{x}_i^T\boldsymbol{x}_j,
+\qquad
+\sum_i\alpha_i d_i=0,
+\qquad
+\boxed{0\le\alpha_i\le C}
+$$
+
+The objective is **identical** to the hard-margin one - only the box constraint changes.
+
+The KT conditions become $\alpha_i(d_i(\boldsymbol{w}^T\boldsymbol{x}_i+b)+\xi_i-1)=0$ and $\mu_i\xi_i=0$, which classify every point:
+
+| $\alpha_i$ | $\mu_i=C-\alpha_i$ | $\xi_i$ | position |
+|---|---|---|---|
+| $\alpha_i=0$ | $>0$ | $0$ | outside the margin, not a support vector |
+| $0<\alpha_i<C$ | $>0$ | $0$ | **on the edge** of the margin |
+| $\alpha_i=C$ | $0$ | $\ge0$ | **inside** the margin, or misclassified |
+
+### 5. Recovering $b_o$
+
+$b$ vanished from the dual, so it has to be recovered afterwards. Take any $j$ with $0<\alpha_j<C$: by the table above such a point has $\xi_j=0$ and sits exactly on the margin edge, so $d_j(\boldsymbol{w}_o^T\boldsymbol{x}_j+b_o)=1$, and multiplying by $d_j$ (with $d_j^2=1$):
+
+$$
+b_o=d_j-\boldsymbol{w}_o^T\boldsymbol{x}_j=d_j-\sum_i \alpha_{o,i}d_i\,\boldsymbol{x}_i^T\boldsymbol{x}_j .
+$$
+
+In the hard-margin case every support vector qualifies, and for a positive one this is $b_o=1-\boldsymbol{w}_o^T\boldsymbol{x}^{(s)}$. In practice average over all valid $j$ for numerical stability.
+
+> [!warning]
+> Only points with $0<\alpha_j<C$ can be used. A point with $\alpha_j=C$ may have $\xi_j>0$, so its constraint is not tight and it gives the wrong $b$.
 
 ---
 
@@ -305,3 +348,4 @@ Other honest points:
 - [[SVM Regression]] - the $\epsilon$-insensitive version.
 - [[Structural Risk Minimization]], [[VC Dimension]], [[Cover's Theorem]]
 - [[Linear Models]], [[Linear Basis Expansion]], [[Perceptron]], [[Neural Networks]]
+- [[Vector and Matrix Algebra]] - the scaling freedom, the margin geometry, the dot products.

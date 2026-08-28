@@ -1,5 +1,8 @@
 {
   "baseFontSizeAction": true,
   "nativeMenus": false,
-  "baseFontSize": 17
+  "baseFontSize": 19,
+  "enabledCssSnippets": [
+    "noctalia"
+  ]
 }

@@ -8,7 +8,7 @@ tags: [machine-learning, training]
 
 Control the **complexity** of the model, and so the generalization - a principled approach, related to Tikhonov theory.
 
-> [!warning] Frequent misunderstanding I
+> [!warning] Frequent misunderstanding
 > Regularization is **not** a technique to control the stability of the training convergence (the [[Learning Curve]]). It controls the complexity of the model, measured by the VC-dim - which in a NN depends on the number of weights **and** on their values.
 
 ## L2 / Tikhonov
@@ -70,7 +70,7 @@ Divide by $l$ only the gradient of $E$, where the sum over the patterns is.
 - [[Dropout]] - randomly drop units during training: a different mechanism for the same job.
 - [[Batch Normalization]] - regularizes through the noise of the mini-batch statistics.
 
-> [!note] Frequent misunderstanding II - ES or Regularization?
+> [!note] Frequent misunderstanding - ES or Regularization?
 > ES is empirical and needs a VL set, sacrificing part of the data. Regularization in the Loss is principled: it makes the VL curve follow the TR curve, so ES is not (strictly) needed and you can stop at training convergence. You can use both - and ES will simply not fire if the VL error never increases.
 
 ## Related

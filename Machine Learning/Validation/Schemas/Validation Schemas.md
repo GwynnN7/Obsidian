@@ -73,7 +73,6 @@ When you want both the best model **and** its expected risk. Combinations:
 - Select $\Lambda^*_m=\arg\min_m R_{emp}(h^*_m(D_{TR}),D_{VL})$ **[best on VL]**.
 - **[retraining]** $h^*(D_{TR}\cup D_{VL})=\arg\min_{h\in H_{\Lambda^*_m}}R_{emp}(h,D_{TR}\cup D_{VL})$.
 - Estimate $R$ with $\frac{1}{ts}\sum_{z_i\in D_{TS}}L(z_i,h^*(D_{TR}\cup D_{VL}))$.
-- *Question: can we now retrain again on all $D_l$? Does that use the test results?*
 
 ### 5b. K-fold CV for selection + hold-out test
 

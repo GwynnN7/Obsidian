@@ -1,8 +1,5 @@
 ---
-tags:
-  - artificial-intelligence
-  - moc
-  - hub
+tags: [moc]
 ---
 
 # Artificial Intelligence
@@ -28,10 +25,33 @@ Central hub for the AI subjects. One branch per subject.
 
 ### Quick entry
 
-| Subject | One page | Canvas |
-|---|---|---|
-| Machine Learning | [[ML Essentials]] | [[ML Map]] |
-| AI Fundamentals | [[AIF Essentials]] | [[AIF Map]] |
+| Subject          | One page           | Canvas             |
+| ---------------- | ------------------ | ------------------ |
+| Machine Learning | [[ML Essentials]]  | [[ML Canvas.canvas]]  |
+| AI Fundamentals  | [[AIF Essentials]] | [[AIF Map.canvas]] |
+
+## How this vault is organized
+
+> [!important] Folders are shelves, tags are meaning
+> A note lives in **exactly one folder**, picked for browsing convenience. What a note *is* lives in its **tags**, which cut across folders and across subjects. Never create a tag that reproduces a folder name - that stores the same partition twice and tells you nothing new.
+
+Every note carries **one subject tag** plus **one or two kind tags**. The kind vocabulary is the same in both subjects, so `#models` collects SVM and Bayesian Networks, and `#theory` collects VC dimension and entailment.
+
+| Tag | What it marks |
+|---|---|
+| `#machine-learning` / `#artificial-intelligence-fundamental` | the subject |
+| `#models` | a representation you can instantiate - it defines a hypothesis space or a structure |
+| `#algorithms` | a procedure with steps |
+| `#theory` | concepts, definitions, properties, bounds, proofs - nothing runnable |
+| `#training` | how the free parameters are found, and the knobs that control it |
+| `#validation` | measuring, selecting, estimating |
+| `#reference` | lookup material: notation, algebra, guideline tables |
+| `#moc` | an index note - a hub, a folder map, an Essentials page |
+
+A note can hold two kind tags when it genuinely is both: [[Backpropagation]] is `#training` and `#algorithms`, [[NEAT]] is `#algorithms` and `#models`.
+
+> [!note]
+> Because the tags carry the meaning, a note does **not** have to move when its kind differs from its shelf. [[Universal Approximation]] is a theorem that lives in the Neural Networks folder, and that is fine - it is tagged `#theory` and the search finds it.
 
 ## Cross-subject threads
 

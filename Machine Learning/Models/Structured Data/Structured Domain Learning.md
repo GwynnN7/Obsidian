@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models]
+tags: [machine-learning, theory]
 ---
 
 # Structured Domain Learning

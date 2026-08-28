@@ -18,7 +18,6 @@ Linear in the parameters - either in the input space, or in a feature space some
 - [[Linear Models]] - LMS, [[Normal Equation]], gradient descent, LTU classifier.
 - [[Linear Basis Expansion]] - fixed nonlinear features, still linear in $\boldsymbol{w}$.
 - [[Ridge Regression]] - the regularized linear model.
-- [[Multiclass Classification]] - 1-of-K, OVA, AVA, softmax.
 - [[SVM]] - margin, support vectors, primal/dual, soft margin.
 - [[Kernel Methods]] - the kernel trick, valid kernels, and life beyond SVM.
 - [[SVM Regression]] - the $\epsilon$-insensitive tube.
@@ -29,7 +28,8 @@ No training at all: keep the data, decide at prediction time.
 
 - [[k-NN]] - store the data, decide at prediction time.
 - [[Curse of Dimensionality]] - why locality breaks in high $n$.
-- [[Bayes Optimal Classifier]] - the theoretical best, which k-NN approximates.
+
+The reference they are measured against, [[Bayes Optimal Classifier]], now lives in [[Theory]].
 
 ## Neural Networks
 

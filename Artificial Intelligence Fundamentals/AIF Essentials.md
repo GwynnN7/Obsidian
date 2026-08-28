@@ -1,12 +1,12 @@
 ---
-tags: [artificial-intelligence-fundamental, moc, essentials]
+tags: [artificial-intelligence-fundamental, moc]
 ---
 
 # AIF Essentials
 
 The whole subject on one page. One question runs through all of it: **what should the agent do next?** Each stage is a different answer.
 
-The visual version is [[AIF Map]]. The folder-by-folder view is [[Artificial Intelligence Fundamentals]].
+The visual version is [[AIF Map.canvas]]. The folder-by-folder view is [[Artificial Intelligence Fundamentals]].
 
 ## The five lines
 

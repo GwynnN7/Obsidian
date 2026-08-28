@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, csp]
+tags: [artificial-intelligence-fundamental, algorithms]
 ---
 
 # Tree-Structured CSPs

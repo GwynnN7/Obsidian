@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, validation, practical]
+tags: [machine-learning, validation]
 ---
 
 # Validation Pitfalls

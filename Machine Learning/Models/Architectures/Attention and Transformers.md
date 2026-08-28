@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # Attention and Transformers

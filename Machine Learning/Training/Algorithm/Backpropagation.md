@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, training, neural-networks]
+tags: [machine-learning, training, algorithms]
 ---
 
 # Backpropagation

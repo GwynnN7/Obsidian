@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, training, hyperparameter]
+tags: [machine-learning, training]
 ---
 
 # Weight Initialization

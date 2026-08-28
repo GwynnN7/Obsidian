@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, search, planning]
+tags: [artificial-intelligence-fundamental, theory]
 ---
 
 # Planning in Non-Deterministic Environments

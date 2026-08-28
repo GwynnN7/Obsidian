@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, training, validation]
+tags: [machine-learning, training]
 ---
 
 # Early Stopping

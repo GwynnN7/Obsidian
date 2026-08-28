@@ -12,7 +12,7 @@ $$
 E' > E, \qquad R' < R,
 $$
 
-so $h'$ fits the training data worse and is the better model.
+so $h'$ fits the training data worse but is the better model.
 
 ## Why it happens
 

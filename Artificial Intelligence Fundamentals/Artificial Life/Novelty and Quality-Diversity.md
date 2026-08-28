@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, alife]
+tags: [artificial-intelligence-fundamental, algorithms]
 ---
 
 # Novelty and Quality-Diversity

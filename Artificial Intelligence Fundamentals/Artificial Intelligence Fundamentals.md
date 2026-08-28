@@ -1,8 +1,5 @@
 ---
-tags:
-  - artificial-intelligence-fundamental
-  - subject
-  - moc
+tags: [artificial-intelligence-fundamental, moc]
 ---
 
 # Artificial Intelligence Fundamentals
@@ -13,7 +10,7 @@ Hub. How an agent decides what to do, and how it represents what it knows.
 
 | | | |
 |---|---|---|
-| **See it** | [[AIF Map]] | the canvas: the whole path as boxes and arrows |
+| **See it** | [[AIF Map.canvas]] | the canvas: the whole path as boxes and arrows |
 | **Read it** | [[AIF Essentials]] | one page: the concepts that matter, in order, with the rules |
 | **Browse it** | the table below | the shelves, when you already know what you are looking for |
 
@@ -30,6 +27,6 @@ Hub. How an agent decides what to do, and how it represents what it knows.
 | [[Probabilistic Reasoning]] | probability, Bayesian networks, inference, reasoning over time |
 
 > [!note] Folders are just shelves
-> The **order** of the subject lives in [[AIF Essentials]] and [[AIF Map]], not in the tree.
+> The **order** of the subject lives in [[AIF Essentials]] and [[AIF Map.canvas]], not in the tree.
 
 Part of [[Artificial Intelligence]].

@@ -1,15 +1,15 @@
 ---
-tags: [machine-learning, moc]
+tags: [machine-learning, moc, theory]
 ---
 
 # ML Framework
 
-General frame is **learn a function from examples**. The five topis of any ML system:
+General frame is **learn a function from examples**. The five topics of any ML system:
 
 | Ingredient | What it is | Note |
 |---|---|---|
 | **Data** | the available experience | [[Data and Preprocessing]] |
-| **Task** | what we want out of it | [[Classification]], [[Regression]], [[Cluster Analysis]], [[Association Rules]] |
+| **Task** | what we want out of it | [[Classification]], [[Regression]], [[Multiclass Classification]], [[Cluster Analysis]], [[Association Rules]] |
 | **Model** | the "language" of the hypotheses, defines $H$ | [[Models]] |
 | **Learning algorithm** | the search inside $H$ | [[Learning Algorithm]] |
 | **Validation** | does it generalize? | [[Validation]] |
@@ -24,9 +24,9 @@ General frame is **learn a function from examples**. The five topis of any ML sy
 ## Paradigms
 
 - [[Supervised Learning]] - labeled examples $(x,d)$.
-- [[Unsupervised Learning]] - no labels, find structure. It has its own folder, since most of the supervised machinery does not apply to it.
+- [[Unsupervised Learning]] - no labels, find structure.
 - [[Semi-Supervised Learning]] - a mix.
-- [[Reinforcement Learning]] - learn from reward, not from step-by-step targets.
+- [[Reinforcement Learning]] - learn from reward.
 
 ## When is ML the right tool
 
@@ -48,5 +48,6 @@ Requires:
 
 - [[Loss Functions]] - how we measure the quality of the approximation.
 - [[Notation]] - symbols used everywhere.
+- [[Vector and Matrix Algebra]] - the dot products, norms and gradients the whole subject runs on.
 - [[ML Workflow]] - the practical design cycle.
 - [[Generalization and Risk]] - the point of the whole thing.

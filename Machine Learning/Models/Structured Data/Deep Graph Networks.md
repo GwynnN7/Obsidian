@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # Deep Graph Networks
@@ -7,6 +7,30 @@ tags: [machine-learning, models, neural-networks]
 DGN: the neural framework for learning on graphs. Also met under many other names - neural networks for graphs, graph neural networks (GNN), graph convolutional networks (GCN), graph representation learning, deep learning for graphs.
 
 The domain and the tasks are in [[Structured Domain Learning]]; this note is about how the models work.
+
+## The result
+
+Every DGN is one equation iterated over the graph. For $l=1,\dots,L$ and every node $v$:
+
+$$
+\boldsymbol{h}_v^{(l)}=\mathrm{AGG}_{\boldsymbol{W}^{(l)}}\Big(\boldsymbol{L}_v,\ \boldsymbol{h}_v^{(l-1)},\ \{\boldsymbol{h}_u^{(l-1)}:u\in\mathcal{N}(v)\}\Big)
+$$
+
+| symbol | what it is |
+|---|---|
+| $\boldsymbol{h}_v^{(l)}$ | state (embedding) of node $v$ after $l$ steps |
+| $\boldsymbol{L}_v$ (or $\boldsymbol{x}_v$) | the label/features attached to $v$ |
+| $\mathcal{N}(v)$ | the neighbours of $v$, read off the adjacency matrix $\boldsymbol{A}$ |
+| $\mathrm{AGG}$ | a **permutation-invariant** operator over that set (sum, mean, max, attention) plus unit activations |
+| $\boldsymbol{W}^{(l)}$ | the free parameters - shared across all nodes |
+
+Three consequences, and they are the whole framework:
+
+1. **Permutation invariance** comes from $\mathrm{AGG}$ being order-blind, and weight sharing across nodes.
+2. **After $l$ steps the state of $v$ covers a context of radius $l$** - so depth is not a tuning choice, it is how information reaches distant nodes.
+3. **Two ways to iterate:** each step is a new layer with its own weights (*layering / convolutional*: GCN, GraphConv, GAT, NN4G), or the same function is iterated to a fixed point (*recursive*: GNN, GraphESN).
+
+To emit one output for the **whole graph**, aggregate the node states with a permutation-invariant **global pooling** and feed a readout; for node-level tasks the output is emitted per node instead.
 
 ## Why not just use a CNN
 
@@ -25,11 +49,7 @@ The fix keeps the two CNN ingredients and drops the grid:
 
 ## Message passing
 
-The general equation, for $l=1,\dots,L$:
-
-$$
-\boldsymbol{h}_v^{(l)}=\mathrm{AGG}_{\boldsymbol{W}^{(l)}}\Big(\boldsymbol{L}_v,\ \boldsymbol{h}_v^{(l-1)},\ \{\boldsymbol{h}_u^{(l-1)}:u\in\mathcal{N}(v)\}\Big)
-$$
+Reading the equation at the top:
 
 - Nodes "talk" to each other to inform about themselves and to become aware of the surrounding structure - by **messages**.
 - $\boldsymbol{h}_v^{(l)}$ is the **state** (embedding) of node $v$; $\boldsymbol{L}_v$ (or $\boldsymbol{x}_v$) is its label; $\mathcal{N}$ follows the adjacency matrix $\boldsymbol{A}$.
@@ -41,7 +61,6 @@ $$
 >
 > Depth is functional to the growth of the context $\to$ **DGNs are inherently deep**.
 
-**Global pooling:** to emit one output for the whole graph, aggregate the node representations with a permutation-invariant operator (sum, mean) and feed a readout. For node-based tasks the output is emitted per node instead.
 
 ## Two ways of iterating
 

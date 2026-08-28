@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, framework, practical]
+tags: [machine-learning, theory]
 ---
 
 # ML Workflow

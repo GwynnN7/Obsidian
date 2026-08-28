@@ -16,7 +16,7 @@ $$
 
 For $n=4$ that is $2^{16}=65536$ Boolean functions. After 7 examples $2^{9}$ possibilities are still left.
 
-## Lookup table (rote learner)
+## Lookup table
 
 Store the examples, answer only if the input matches one of them, otherwise "don't know".
 

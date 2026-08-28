@@ -1,5 +1,5 @@
 {
-  "collapse-filter": true,
+  "collapse-filter": false,
   "search": "",
   "showTags": false,
   "showAttachments": false,
@@ -8,21 +8,63 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "tag:#machine-learning  ",
+      "query": "file:.canvas",
+      "color": {
+        "a": 1,
+        "rgb": 16777215
+      }
+    },
+    {
+      "query": "tag:#reference",
+      "color": {
+        "a": 1,
+        "rgb": 6902496
+      }
+    },
+    {
+      "query": "tag:#moc  ",
+      "color": {
+        "a": 1,
+        "rgb": 5395168
+      }
+    },
+    {
+      "query": "tag:#algorithms  ",
+      "color": {
+        "a": 1,
+        "rgb": 14725458
+      }
+    },
+    {
+      "query": "tag:#training  ",
+      "color": {
+        "a": 1,
+        "rgb": 5431473
+      }
+    },
+    {
+      "query": "tag:#validation  ",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
+    },
+    {
+      "query": "tag:#models  ",
       "color": {
         "a": 1,
         "rgb": 14701138
       }
     },
     {
-      "query": "tag:#artificial-intelligence-fundamental  ",
+      "query": "tag:#theory  ",
       "color": {
         "a": 1,
-        "rgb": 14725458
+        "rgb": 16711927
       }
     }
   ],
-  "collapse-display": false,
+  "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
@@ -31,7 +73,7 @@
   "centerStrength": 0.518713248970312,
   "repelStrength": 10,
   "linkStrength": 1,
-  "linkDistance": 250,
-  "scale": 0.8261937417026022,
+  "linkDistance": 240,
+  "scale": 0.70233196159122,
   "close": true
 }

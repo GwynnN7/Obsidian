@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, training, practical]
+tags: [machine-learning, training]
 ---
 
 # Learning Curve

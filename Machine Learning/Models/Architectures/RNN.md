@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # RNN
@@ -10,6 +10,43 @@ Recurrent Neural Networks. A different **category of architecture**: feedback lo
 - Recurrent: self-loop connections give the network **dynamical properties**, keeping a memory (**states**) of the past computations.
 - This extends the representation capability to **sequences** (and structured data).
 - Neurobiological plausibility: the nervous system *is* a recurrent NN.
+
+## The result
+
+An RNN is a **state transition system** whose transition function is a neural network:
+
+$$
+x(t)=\tau\big(x(t-1),\,l(t)\big),
+\qquad
+y(t)=g\big(x(t),\,l(t)\big),
+\qquad
+x(0)=0
+$$
+
+For a single recurrent unit that is
+
+$$
+x(t)=f\big(w^T l(t)+\hat w\,x(t-1)+\theta\big)
+$$
+
+| symbol | what it is |
+|---|---|
+| $l(t)$ | input at step $t$ |
+| $x(t)$ | **state** - a summary of the past, continuous valued |
+| $\tau$ | state transition (next-state) function, realized by a NN |
+| $g$ | output function / readout |
+| $\hat w$ | the **recurrent** weight; $w$ the input weights, $\theta$ the bias |
+| $f$ | sigmoidal activation |
+
+Three assumptions make it work, and each one earns something:
+
+| assumption | what it buys |
+|---|---|
+| **causality** - the output at $t_0$ depends only on inputs at $t<t_0$ | an internal state is possible at all |
+| **stationarity** - $\tau$ is the same at every $t$ | one **fixed-size** model handles sequences of any length |
+| **adaptivity** - $\tau$ is a NN with free weights | the encoding of the past is *learnt*, not designed |
+
+Trained by **unfolding through time** into a feedforward network with shared weights and running [[Backpropagation]] on it (BPTT, or RTRL for the same gradient computed on-line).
 
 ## When you need it
 
@@ -62,17 +99,12 @@ with $f$ a sigmoidal activation, $\hat w$ the **recurrent weight**, $\theta$ the
 - The **state summarizes the past** (the context) and changes with the stream of inputs.
 - The encoding of the past is **adaptive**, because those weights are free parameters of the model.
 
-> [!note] Exercise
-> Build a 1-unit RNN (find $w$ and $\hat w$) whose state accumulates the number of `1`s received so far, with input stream in $\{0,1\}$. Trace input/state/output for e.g. `101101`. A TDNN cannot do this for varying-size sequences.
-
 ## As a state transition system
 
-$$
-x(t)=\tau(x(t-1),l(t)),\qquad y(t)=g(x(t),l(t))
-$$
+Reading the two equations at the top:
 
 - $\tau$ is the **state transition (next-state) function**, realized by a NN.
-- The state has **continuous** values, and $x(t)$ can be a set of states (a network of recurrent units) - the "Simple RNN" of Elman.
+- The state has **continuous** values, and $x(t)$ can be a set of states (a network of recurrent units).
 - Same graphical model family as HMM, but with continuous adaptive states.
 
 ### The three assumptions
@@ -81,7 +113,7 @@ $$
 2. **Stationarity** - time invariance after training: $\tau$ is the same at every $t$, regardless of the length of the sequence. This is what lets a **fixed-size model** process data of variable length.
 3. **Adaptivity** - the transition functions are realized by NN with free weights, so they are learnt from data.
 
-Even the Simple RNN is already powerful: **universal approximators of non-linear dynamical systems**, and **Turing equivalent** (any automaton can be simulated). Seen as a non-autonomous dynamical non-linear system, it connects to chaos and fractal theory.
+Even a simple RNN is already powerful: **universal approximators of non-linear dynamical systems**, and **Turing equivalent** (any automaton can be simulated). Seen as a non-autonomous dynamical non-linear system, it connects to chaos and fractal theory.
 
 ## Learning: unfolding through time
 
@@ -111,8 +143,6 @@ Two algorithms compute the same gradient of the output errors over the unfolded 
 - Other ways to attack the vanishing gradient: Hessian-free optimizers, pre-training techniques.
 - [[Echo State Networks]] - don't train the recurrent part at all.
 - [[Attention and Transformers]] - drop recurrence entirely.
-
-Most are in the popular libraries (PyTorch, Keras, Caffe2, Matlab, CNTK).
 
 ## Other models for sequences
 

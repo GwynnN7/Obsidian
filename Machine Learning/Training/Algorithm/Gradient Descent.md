@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, training]
+tags: [machine-learning, training, algorithms]
 ---
 
 # Gradient Descent

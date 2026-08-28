@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # Randomized Neural Networks
@@ -66,6 +66,14 @@ $$
 $$
 
 i.e. [[Ridge Regression]] on the hidden representation. L1 is also possible.
+
+### The named families
+
+The same architecture appears in the literature under three standard names:
+
+- **RVFL** - Random Vector Functional-Link, which also keeps direct input-to-readout connections.
+- **ELM** - Extreme Learning Machine, the plain random hidden layer plus linear readout described above.
+- **RBF networks with random centres** - the same idea with radial basis functions, the centres drawn instead of fitted.
 
 ## Why it works, and the debate
 

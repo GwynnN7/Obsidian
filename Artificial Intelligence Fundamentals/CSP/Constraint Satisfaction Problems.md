@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, csp]
+tags: [artificial-intelligence-fundamental, theory]
 ---
 
 # Constraint Satisfaction Problems

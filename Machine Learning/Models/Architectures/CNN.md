@@ -1,10 +1,37 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # CNN
 
 Convolutional Neural Networks. The point is **architecture design as a way to put prior information into a NN** - a not-fully-connected feed-forward NN built for a specific kind of problem.
+
+## The result
+
+A convolutional layer applies **one small kernel over every position** of its input. In 2D, with input $\boldsymbol{I}$ and kernel $\boldsymbol{K}$:
+
+$$
+S(i,j)=(\boldsymbol{I}*\boldsymbol{K})(i,j)=\sum_m\sum_n \boldsymbol{I}(i+m,\,j+n)\,\boldsymbol{K}(m,n)
+$$
+
+The output $S$ is a **feature map**: what that one filter found, everywhere. The size of the map, per spatial dimension:
+
+$$
+o=\left\lfloor\frac{i-k+2p}{s}\right\rfloor+1
+$$
+
+| knob | symbol | what it does |
+|---|---|---|
+| input size | $i$ | side of the input map |
+| kernel / receptive field | $k$ | how much of the input one unit sees |
+| padding | $p$ | pixels added at the border, to control the shrinking |
+| stride | $s$ | how far the kernel jumps; $s>1$ subsamples |
+
+> [!important] Two ingredients, everything else follows
+> **Local connections** (a unit sees only its receptive field) and **weight sharing** (the same kernel at every position). From these two you get translation invariance, far fewer free parameters - regularization by architecture - and a receptive field that grows with depth.
+
+> [!note]
+> What is written above is technically **cross-correlation**: true convolution flips the kernel, $\boldsymbol{K}(m,n)\to\boldsymbol{K}(-m,-n)$. Since the kernel is learned, the flip is irrelevant and every library calls this convolution.
 
 ## The motivating problem
 
@@ -34,7 +61,6 @@ The weights are tuned by learning as usual $\to$ an **adaptive filter**; several
 
 - **Stride:** how many pixels the kernel jumps. Stride 1 = one pixel shift; stride 2 = subsampling, which reduces the feature map.
 - **Padding:** used to treat the border.
-- Libraries usually implement it in the **cross-correlation** form.
 
 ## Pooling
 

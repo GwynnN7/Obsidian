@@ -6,6 +6,8 @@ tags: [machine-learning, reference]
 
 Consistent notation across all these notes. Local variations exist and are stated where they apply.
 
+This note fixes the **symbols**; what the operations on them actually do is in [[Vector and Matrix Algebra]].
+
 > [!important] Bold means vector or matrix
 > Vectors and matrices are written **bold** ($\boldsymbol{x}$, $\boldsymbol{w}$, $\boldsymbol{X}$); scalars are plain ($x_i$, $w_j$, $\eta$). The same letter can be either, so the weight matters: $\boldsymbol{x}_p$ is the $p$-th pattern, $x_{p,i}$ is one number inside it.
 
@@ -18,13 +20,15 @@ Consistent notation across all these notes. Local variations exist and are state
 - $x_{p,i}$, also $(\boldsymbol{x}_p)_i$ (**scalar**): component $i$ of pattern $p$.
 - Target: typically $y_p$, or $d_p$ or $t_p$ - scalar, or $\boldsymbol{d}$ for multi-output.
 
+- $\boldsymbol{T}$: a **tensor** - an array of numbers on a regular grid, indexed by more than two indices. A scalar is a 0-tensor, a vector a 1-tensor, a matrix a 2-tensor; a batch of RGB images is a 4-tensor.
+
 ## Functions
 
 - $f$: the unknown target function.
 - $h$: the hypothesis emitted by the learning algorithm to approximate $f$; $h_{\boldsymbol{w}}$ highlights the dependence on the parameter **vector** $\boldsymbol{w}$.
 - $h(\boldsymbol{x})$ is discrete for classification, real for regression.
 - $o$ (or $out$): output of a unit; $net$: weighted input to a unit. Both scalars.
-- $w_{tu}$, $w_{ij}$ (**scalar**): a single connection weight - plain, even though $\boldsymbol{w}$ is bold.
+- $w_{tu}$, $w_{ij}$ (**scalar**): a single connection weight.
 
 ## Loss, error and risk
 
@@ -58,4 +62,4 @@ Consistent notation across all these notes. Local variations exist and are state
 
 $w_{ij}$ is the weight **of unit $i$**, from unit/input $j$ to unit $i$ - not the other way round. Some libraries and Wikipedia use the opposite.
 
-Related: [[ML Framework]], [[Loss Functions]].
+Related: [[ML Framework]], [[Loss Functions]], [[Vector and Matrix Algebra]].

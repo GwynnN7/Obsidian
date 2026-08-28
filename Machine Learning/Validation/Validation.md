@@ -4,7 +4,7 @@ tags: [machine-learning, moc, validation]
 
 # Validation
 
-> Evaluation of performance for a ML system = evaluation of the **generalization / predictive accuracy**. Validation, validation, validation.
+> Evaluation of performance for a ML system = evaluation of the **generalization / predictive accuracy**.
 >
 > Easy use of ML tools versus **correct** use of ML.
 

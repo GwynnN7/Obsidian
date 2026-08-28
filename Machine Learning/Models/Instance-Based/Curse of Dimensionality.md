@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, theory, models]
+tags: [machine-learning, theory]
 ---
 
 # Curse of Dimensionality

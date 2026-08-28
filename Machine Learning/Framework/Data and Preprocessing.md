@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, framework]
+tags: [machine-learning, theory]
 ---
 
 # Data and Preprocessing

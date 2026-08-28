@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, ensembles]
+tags: [machine-learning, models]
 ---
 
 # Bagging

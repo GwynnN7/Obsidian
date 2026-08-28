@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, probability]
+tags: [artificial-intelligence-fundamental, theory]
 ---
 
 # Reasoning over Time

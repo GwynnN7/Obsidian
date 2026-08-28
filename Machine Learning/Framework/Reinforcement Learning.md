@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, paradigms]
+tags: [machine-learning, theory]
 ---
 
 # Reinforcement Learning

@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, planning]
+tags: [artificial-intelligence-fundamental, theory]
 ---
 
 # Classical Planning

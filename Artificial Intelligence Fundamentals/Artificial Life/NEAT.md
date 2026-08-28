@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, alife, neural-networks]
+tags: [artificial-intelligence-fundamental, algorithms, models]
 ---
 
 # NEAT

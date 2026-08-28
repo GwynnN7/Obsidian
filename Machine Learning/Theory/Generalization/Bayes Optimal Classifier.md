@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, theory]
+tags: [machine-learning, theory]
 ---
 
 # Bayes Optimal Classifier

@@ -28,6 +28,7 @@ For an MLP, step 2 is done by [[Backpropagation]]: a forward pass to compute the
 How the gradient is computed and applied.
 
 - [[Gradient Descent]] - the algorithm itself.
+- [[Normal Equation]] - the closed-form alternative, for linear models.
 - [[Delta Rule]] - the error-correction update.
 - [[Backpropagation]] - the gradient for a multilayer network.
 - [[Batch Online and Mini-Batch]] - when to update.

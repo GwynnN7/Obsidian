@@ -4,21 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "b4361933a3e8cec0",
+        "id": "645f5bd32a938b04",
         "type": "tabs",
         "children": [
           {
-            "id": "3622bd35cd436acf",
+            "id": "7a28f3e6da3ca3d4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Machine Learning/Theory/No Free Lunch.md",
-                "mode": "source",
-                "source": false
+                "file": "Machine Learning/Framework/Vector Quantization.md",
+                "mode": "preview",
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "No Free Lunch"
+              "title": "Vector Quantization"
             }
           }
         ]
@@ -42,7 +43,7 @@
               "state": {
                 "sortOrder": "alphabetical",
                 "autoReveal": false,
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
@@ -57,9 +58,9 @@
               "state": {
                 "query": "",
                 "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
+                "explainSearch": true,
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
@@ -169,13 +170,23 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "f9486f5ca9f8af2e",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,37 +196,40 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3622bd35cd436acf",
+  "active": "10f195b1f3d77987",
   "lastOpenFiles": [
-    "Machine Learning/Theory/Learning Algorithm.md",
-    "Machine Learning/Theory/Inductive Bias.md",
-    "Machine Learning/Theory/Hypothesis Space and Inductive Bias.md",
-    "Machine Learning/Theory/Generalization and Risk.md",
-    "Machine Learning/Theory/Cover's Theorem.md",
-    "Machine Learning/Theory/Concept Learning.md",
-    "Machine Learning/Theory/Boosting.md",
-    "Machine Learning/Theory/Bias-Variance Tradeoff.md",
-    "Machine Learning/Theory/Bagging.md",
-    "Machine Learning/Models/Universal Approximation.md",
-    "Machine Learning/Models/SVM Regression.md",
-    "Machine Learning/Models/SVM.md",
-    "Machine Learning/Models/RNN.md",
-    "Machine Learning/Models/Ridge Regression.md",
-    "Machine Learning/Models/Randomized Neural Networks.md",
-    "Machine Learning/Models/Perceptron.md",
-    "Machine Learning/Models/Normal Equation.md",
-    "Machine Learning/Models/Linear Models.md",
-    "Machine Learning/Models/Models.md",
-    "Machine Learning/Models/Multiclass Classification.md",
-    "Machine Learning/Models/Neural Networks.md",
-    "Machine Learning/Training/Delta Rule.md",
-    "Machine Learning/Models/Linear Basis Expansion.md",
-    "Machine Learning/Models/Kernel Methods.md",
-    "Machine Learning/Models/k-NN.md",
-    "Machine Learning/Models/Curse of Dimensionality.md",
+    "Machine Learning/Framework/Cluster Analysis.md",
+    "Machine Learning/Framework/Vector Quantization.md",
+    "Machine Learning/Models/Structured Data/SOM.md",
+    "Machine Learning/Models/Structured Data/Structured Domain Learning.md",
+    "Machine Learning/Training/Algorithm/K-Means.md",
+    "Machine Learning/Framework/Association Rules.md",
+    "Machine Learning/Validation/Schemas/Validation Pitfalls.md",
+    "Machine Learning/Validation/Schemas/Stratified Sampling.md",
+    "Machine Learning/Validation/Schemas/Model Selection and Assessment.md",
+    "Machine Learning/Validation/Schemas/Cross Validation.md",
+    "Machine Learning/Validation/Schemas/Bootstrap.md",
+    "Machine Learning/Validation/Metrics/ROC Curve.md",
+    "Machine Learning/Validation/Metrics/Regression Metrics.md",
+    "Machine Learning/Validation/Metrics/Mean Squared Error.md",
+    "Machine Learning/Validation/Metrics/Confusion Matrix.md",
+    "Machine Learning/Validation/Metrics/Classification Metrics.md",
+    "Machine Learning/Machine Learning.md",
+    "Artificial Intelligence Fundamentals/Artificial Life/Evolutionary Strategies.md",
+    "Artificial Intelligence Fundamentals/Artificial Life/Cellular Automata.md",
+    "Machine Learning/ML Essentials.md",
+    "Machine Learning/Models/Neural Networks/Neural Networks.md",
+    "Machine Learning/Models/Linear and Kernel/Linear Basis Expansion.md",
+    "Machine Learning/Framework/Supervised Learning.md",
+    "Machine Learning/Framework/ML Framework.md",
+    "Artificial Intelligence.md",
+    "Machine Learning/Validation/Search/Random Search.md",
+    "Machine Learning/ML Canvas.canvas",
+    "Artificial Intelligence Fundamentals/AIF Map.canvas",
     "Untitled.canvas",
     "Untitled.base",
     "Artificial Intelligence Fundamentals/Probabilistic Reasoning",

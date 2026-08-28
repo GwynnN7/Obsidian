@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, search]
+tags: [artificial-intelligence-fundamental, algorithms]
 ---
 
 # Informed Search

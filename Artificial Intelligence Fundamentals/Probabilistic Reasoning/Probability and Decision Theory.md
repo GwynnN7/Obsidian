@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, probability]
+tags: [artificial-intelligence-fundamental, theory]
 ---
 
 # Probability and Decision Theory

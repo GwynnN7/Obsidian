@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, moc, paradigms]
+tags: [machine-learning, moc, theory]
 ---
 
 # Unsupervised Learning

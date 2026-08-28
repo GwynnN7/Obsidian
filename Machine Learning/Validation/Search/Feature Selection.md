@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, validation, preprocessing]
+tags: [machine-learning, validation]
 ---
 
 # Feature Selection

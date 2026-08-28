@@ -62,6 +62,16 @@
       "path": "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Probability and Decision Theory.md",
       "subpath": "#Bayes' rule",
       "title": "Bayes' Rule"
+    },
+    {
+      "type": "file",
+      "ctime": 1787929231488,
+      "path": "Machine Learning/Theory/Capacity and Bounds/VC Dimension.md"
+    },
+    {
+      "type": "file",
+      "ctime": 1787932535502,
+      "path": "Machine Learning/Theory/Generalization/Bias-Variance Tradeoff.md"
     }
   ]
 }

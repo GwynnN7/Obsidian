@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, tasks]
+tags: [machine-learning, theory]
 ---
 
 # Regression

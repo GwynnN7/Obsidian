@@ -1,8 +1,5 @@
 ---
-tags:
-  - machine-learning
-  - subject
-  - moc
+tags: [machine-learning, moc]
 ---
 
 # Machine Learning
@@ -11,17 +8,16 @@ Machine Learning hub.
 
 ## Three ways in
 
-| | | |
-|---|---|---|
-| **See it** | [[ML Map]] | the canvas: the whole path as boxes and arrows |
-| **Read it** | [[ML Essentials]] | one page: the concepts that matter, in order, with the rules |
-| **Browse it** | the table below | the shelves, when you already know what you are looking for |
+| **See it**    | [[ML Canvas.canvas]]        | the canvas: the whole path as boxes and arrows               |
+| ------------- | ----------------- | ------------------------------------------------------------ |
+| **Read it**   | [[ML Essentials]] | one page: the concepts that matter, in order, with the rules |
+| **Browse it** | the table below   | the shelves, when you already know what you are looking for  |
 
 ## The shelves
 
 | Folder | What is in it | Inside |
 |---|---|---|
-| [[ML Framework\|Framework]] | the setup | data, tasks, paradigms, loss, notation, workflow |
+| [[ML Framework\|Framework]] | the setup | data, tasks, paradigms, loss, notation, algebra, workflow |
 | [[Theory]] | why learning works | `Inductive Bias`, `Generalization`, `Capacity and Bounds` |
 | [[Models]] | what can be represented | `Linear and Kernel`, `Instance-Based`, `Neural Networks`, `Architectures`, `Deep Learning`, `Structured Data`, `Ensembles` |
 | [[Training]] | how the weights are found | `Algorithm`, `Knobs`, `Complexity Control` |
@@ -30,7 +26,7 @@ Machine Learning hub.
 | [[Hyperparameter Guidelines]] | the practical do / don't reference | - |
 
 > [!note] Folders are just shelves
-> Links do not care where a note lives, so the folders are only there to make browsing sane. The **order** of the subject lives in [[ML Essentials]] and [[ML Map]], not in the tree.
+> Links do not care where a note lives, so the folders are only there to make browsing sane. The **order** of the subject lives in [[ML Essentials]] and [[ML Canvas.canvas]], not in the tree.
 
 ## The three things to never forget
 

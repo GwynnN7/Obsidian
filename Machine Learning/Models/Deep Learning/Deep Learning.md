@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # Deep Learning
@@ -90,6 +90,10 @@ For a given number of parameters, deeper networks impose **more smoothness** tha
 
 That last point is what the techniques below are about.
 
+### Why the hardware matters
+
+Almost all the computation in a deep network is **matrix multiplication** - dot products that are independent of each other, so they parallelize almost perfectly. That is the whole reason GPUs, and later the dedicated tensor/neural processing units, made deep models practical: the algorithm did not need to change, the same arithmetic just got much cheaper.
+
 ## The gradient problem
 
 What happens to the magnitude of the gradient as we backpropagate through many layers? With $\boldsymbol{h}^{(l)}=F_l(\boldsymbol{h}^{(l-1)})$ and $F=F_M\circ\dots\circ F_1$:
@@ -161,15 +165,66 @@ Why it is the default for deep models:
 
 An older route to deep training, now mostly replaced by end-to-end backprop: see [[Representation Learning]].
 
+### Adversarial learning
+
+Two networks trained against each other: one **generates** candidates, the other **evaluates** them, and each gets better because the other does.
+
+- **Adversarial training** - feeding a model deliberately perturbed inputs to make it robust to them; it also acts as a regularizer.
+- **GAN** (generative adversarial network) - the generator/discriminator pair used as a *generative* model; this is where photorealistic images of people who do not exist come from.
+
 ## Open puzzles
 
-Recent lines of research on why very large networks behave the way they do:
+Why very large networks behave the way they do - all of these are open research lines, not settled results.
 
-- **Non-overfitting puzzle:** huge over-parametrized networks show an apparent lack of overfitting, even with the capacity to reach zero training error on **randomly labelled** data. Part of the explanation: gradient descent applies an **implicit regularization**, converging towards a maximum-margin solution (with an implicit $L_2$ norm constraint), also for the variants that normalize.
-- **Double descent:** as the model size (or the training time) grows, performance first improves, then gets worse (the classical U-shape of [[Overfitting]]), and then improves **again**. Careful regularization often hides it. Even a polynomial regression with a penalty shows it: past zero training error the fit is driven only by the penalty term. Why it happens is not fully understood - the attempts re-read it in terms of "effective model complexity" or of classical [[Statistical Learning Theory]].
-- **Grokking:** generalization arrives many epochs **after** the model has overfitted the training data (here the axis is the number of training steps, not the size).
-- **Redundancy:** given a few weight values per feature, the rest can be predicted - in the best case >95% of the weights, with no accuracy drop. Networks can be compressed (pruning, quantization) without losing accuracy.
-- **Lottery ticket hypothesis:** then why train large networks at all? Because good performance depends on the lucky initialization of one or more **subnetworks**, and a large network contains exponentially more of them. Testable: retraining the pruned network **from the same initialization** should perform as well.
+### The non-overfitting puzzle
+
+Huge over-parametrized networks show an **apparent lack of overfitting**, despite having the capacity to reach zero training error on **randomly labelled** data - which proves the capacity is really there.
+
+Part of the explanation: gradient descent applies an **implicit regularization**.
+
+- The SGD variants that normalize (batch normalization, weight normalization) perform a minimization equivalent to **maximizing the normalized margin**.
+- Even plain gradient descent, with no explicit normalization or penalty, converges towards the **maximum $L_2$ margin** solution - it implicitly controls complexity through a unit $L_2$ norm constraint.
+
+So the complexity control is there; it is just not written in the loss. Compare [[SVM]], where maximizing the margin is the *explicit* objective.
+
+### Double descent
+
+Increase the model size (or the training time) and the test error does **three** things: it improves, then gets worse - the classical U-shape of [[Overfitting]] - and then improves **again**, often past the first minimum.
+
+$$
+\text{underfit}\ \longrightarrow\ \underbrace{\text{classical U-shape}}_{\text{bias}\,\downarrow,\ \text{variance}\,\uparrow}\ \longrightarrow\ \underbrace{\text{interpolation threshold}}_{\text{peak: just big enough for }R_{emp}=0}\ \longrightarrow\ \text{second descent}
+$$
+
+- The peak sits at the **interpolation threshold** - the capacity at which the model is just able to drive the training error to zero.
+- It happens along **two different axes**: growing the number of parameters, *or* simply training longer.
+- Seen in CNNs, ResNets and transformers with millions of parameters.
+- **Label noise makes it visible** (the classic demonstration uses ~15% corrupted labels); careful [[Regularization]] often hides it entirely.
+
+A small example that already shows it: polynomial regression with a penalty. Past the degree that achieves zero training error, the fit is driven **only by the penalty term**, and the polynomial becomes more and more piecewise-linear rather than wilder. Take the median error over many runs and the double-descent curve appears.
+
+> [!warning] It does not refute the trade-off
+> The U-shape of [[Statistical Learning Theory]] and [[Bias-Variance Tradeoff]] is a statement about *capacity*, and the number of parameters is **not** capacity - see [[VC Dimension]]. The attempts to explain double descent re-read it exactly this way: through an "effective model complexity" relative to the number of data, or by reinterpreting the classical bounds. Nobody fully understands it yet.
+
+### Grokking
+
+Generalization arrives **long after** the model has overfitted the training data.
+
+Here the architecture is **fixed** and the axis is the **number of training steps**: the network reaches the interpolation threshold, sits there apparently overfitted for many epochs, and then - with no change to the model - the test error falls.
+
+> [!important] Double descent vs grokking
+> Same surprise, different axis. Get this pair straight and both become easy to state.
+>
+> | | what moves | what stays fixed | when generalization appears |
+> |---|---|---|---|
+> | **Double descent** | model size, *or* training time | - | after passing the interpolation threshold in **capacity** |
+> | **Grokking** | training steps only | the architecture | many epochs after $R_{emp}$ already hit zero |
+
+First observed on small algorithmic datasets, later found beyond those - and beyond neural networks altogether, which suggests it is a property of the optimization, not of the architecture.
+
+### Redundancy and the lottery ticket
+
+- **Redundancy:** given a few weight values per feature, the rest can be predicted - in the best case more than 95% of the weights, with no accuracy drop. Networks can be compressed by pruning and quantization without losing accuracy.
+- **Lottery ticket hypothesis:** then why train large networks at all? Because good performance depends on the lucky initialization of one or more **subnetworks**, and a large network contains exponentially more of them. It is testable: retraining the pruned network **from the same initialization** should perform as well as the full one.
 - **Randomization** of the weights, both as initialization and as a permanent choice $\to$ [[Randomized Neural Networks]].
 
 ## Where it is used

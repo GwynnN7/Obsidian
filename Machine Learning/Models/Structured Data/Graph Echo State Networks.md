@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # Graph Echo State Networks
@@ -15,6 +15,33 @@ It is the third corner of the same idea:
 | graphs | **GESN** - this note |
 
 The general framework it belongs to is in [[Deep Graph Networks]]; here we look at what changes when nothing in the encoder is trained.
+
+## The result
+
+Three equations and one condition.
+
+**Encoder** (random, untrained), for every vertex $v$:
+
+$$
+\boldsymbol{x}(v)=\tanh\Big(\boldsymbol{W}^{in}\boldsymbol{u}(v)+\sum_{v'\in\mathcal{N}(v)}\hat{\boldsymbol{W}}\,\boldsymbol{x}(v')\Big)
+$$
+
+**Stability** - with $k$ the maximum degree of the graphs in the data:
+
+$$
+\textbf{sufficient:}\quad \lVert \hat{\boldsymbol{W}}\rVert\cdot k<1
+\qquad\qquad
+\textbf{necessary:}\quad \rho(\hat{\boldsymbol{W}})\cdot k<1
+$$
+
+**Readout** (the only trained part), linear, in closed form:
+
+$$
+y(\mathcal{G})=\boldsymbol{W}^{out}\sum_{v\in\mathcal{V}}\boldsymbol{x}(v)
+$$
+
+> [!important] The one thing to remember
+> In a plain [[Echo State Networks|ESN]] the stability condition is on $\rho(\hat{\boldsymbol{W}})$ alone. On graphs the **topology joins the condition** through $k$: the more connected the graph, the more signal each node receives, so the weights must be scaled down to compensate.
 
 ## The encoder
 

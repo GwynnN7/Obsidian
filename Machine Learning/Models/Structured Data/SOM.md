@@ -1,14 +1,42 @@
 ---
-tags: [machine-learning, models, neural-networks]
+tags: [machine-learning, models]
 ---
 
 # SOM
 
 Self-Organizing Maps, also called Kohonen maps. An **unsupervised** NN that learns a map from the input space to a lattice of neural units.
 
+## The result
+
+The whole model is two rules, applied to each drawn input $\boldsymbol{x}$ at iteration $t$:
+
+$$
+\textbf{1. compete:}\qquad i^*(\boldsymbol{x})=\arg\min_i \lVert \boldsymbol{x}-\boldsymbol{w}_i\rVert
+$$
+
+$$
+\textbf{2. cooperate:}\qquad \Delta \boldsymbol{w}_i=\eta(t)\ h_{i,i^*(\boldsymbol{x})}(t)\ (\boldsymbol{x}-\boldsymbol{w}_i)
+\qquad \forall i
+$$
+
+| symbol | what it is |
+|---|---|
+| $\boldsymbol{w}_i$ | weight (reference/codebook) vector of unit $i$, $\dim(\boldsymbol{w}_i)=\dim(\boldsymbol{x})=n$ |
+| $i$ | the unit's **coordinate on the map** (a 2D lattice position, not a data point) |
+| $i^*$ | the winner - the unit closest to $\boldsymbol{x}$ |
+| $h_{i,j}(t)$ | **neighbourhood function**, decreasing in $\lVert i-j\rVert$; a gaussian of width $\sigma(t)$ |
+| $\eta(t)$ | learning rate |
+
+Both $\eta(t)$ and $\sigma(t)$ **decrease with $t$**. Repeat until the weights stop changing.
+
+> [!important] $h$ measures distance on the lattice
+> $\lVert i-j\rVert$ is the distance between the **coordinates of the units on the map**, never between their weight vectors. Set $h_{i,j}=\delta_{ij}$ (winner only) and the whole thing collapses to on-line [[K-Means]] - the neighbourhood term *is* the SOM.
+
+## What the pieces mean
+
 - $N$ neurons on a regular **low-dimensional grid** (lattice), usually 2D.
-- Each unit is identified by its **coordinate on the map**.
-- Each unit receives the same input $\boldsymbol{x}$ and has a weight vector $\boldsymbol{w}$, with $\dim(\boldsymbol{w})=\dim(\boldsymbol{x})=n$.
+- Each unit is identified by its coordinate on the map.
+- Each unit receives the same input $\boldsymbol{x}$ and has its own weight vector.
 
 So the weights are [[Vector Quantization|reference vectors]] like in [[K-Means]] - the new ingredient is that they are **arranged on an ordered map**.
 
@@ -28,40 +56,22 @@ An adaptive process in which neurons gradually become **specialized** to differe
 
 The biological analogy is the topologically ordered map of the somatosensory (and motor) cortex: adjacent neurons come to represent coincident sources of activation on the body, with a larger area of cortex for the more sensitive parts.
 
-## The algorithm
+## The two stages in detail
 
 The map is randomly initialized, then for each drawn input $\boldsymbol{x}$:
 
 ### 1. Competitive stage
 
-Compare $\boldsymbol{x}$ with all the unit weights, Euclidean distance, winner-take-all:
-
-$$
-i^*(\boldsymbol{x})=\arg\min_i \lVert \boldsymbol{x}-\boldsymbol{w}_i\rVert
-$$
-
-where $i$ is an index **on the map** (e.g. a 2D coordinate). Same rule as [[K-Means]].
+Compare $\boldsymbol{x}$ with all the unit weights, Euclidean distance, winner-take-all. Same rule as [[K-Means]]; and as always the comparison is done on the **squared** distance, since the root cannot change the winner - see [[Vector and Matrix Algebra]].
 
 ### 2. Cooperative stage
 
-The winner **and the units in its neighbourhood** are moved closer to the input (Hebbian learning). At iteration $t$:
-
-$$
-\Delta \boldsymbol{w}_i=\eta(t)\ h_{i,i^*(\boldsymbol{x})}(t)\ (\boldsymbol{x}-\boldsymbol{w}_i)
-$$
-
-with $h_{i,j}(t)$ the **neighbourhood function** (or kernel), a function that decreases monotonically as $\lVert i-j\rVert$ grows - the distance between the **coordinates** of the units on the lattice, not between their weights. A gaussian of width $\sigma$ is the usual choice.
-
-Repeat until convergence (no more changes).
+The winner **and the units in its neighbourhood** are moved closer to the input - Hebbian learning, with $h$ deciding how much each unit gets. In practice the neighbourhood takes a standard geometrical form on the grid (rectangular, hexagonal), so it includes a finite set of map units.
 
 ### Decreasing the two parameters
 
-Both the learning rate $\eta$ and the neighbourhood radius $\sigma$ **decrease with $t$**:
-
-- wide neighbourhood at the beginning $\to$ global ordering of the map;
-- width and height slowly shrinking during learning $\to$ convergence and local refinement.
-
-In practice the shape of the neighbourhood is taken from a standard geometrical form on the grid (rectangular, hexagonal) so it includes a finite set of map units.
+- Wide neighbourhood at the beginning $\to$ **global ordering** of the map.
+- Width and learning rate slowly shrinking $\to$ **convergence and local refinement**.
 
 > [!important] Key factor: neighbours on the map
 > This is what separates SOM from a plain [[Vector Quantization|soft-max]] adaptation, which uses proximity in the **data** space instead.
@@ -75,9 +85,6 @@ The cooperative update is what makes the map topographically ordered: the weight
 - So topological information is fed into the map: the winner and its lattice neighbours receive similar updates, which after training makes them respond to similar inputs.
 
 Natural as it looks, a formal proof of ordering is difficult.
-
-> [!note] Exercise
-> Focus on the differences between K-means and SOM: winner-only vs winner-and-neighbours, arbitrary indexing vs ordered lattice, no projection vs 2D visualization.
 
 ## Visualization
 

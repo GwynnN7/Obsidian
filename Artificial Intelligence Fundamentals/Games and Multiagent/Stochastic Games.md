@@ -1,5 +1,5 @@
 ---
-tags: [artificial-intelligence-fundamental, games]
+tags: [artificial-intelligence-fundamental, theory]
 ---
 
 # Stochastic Games

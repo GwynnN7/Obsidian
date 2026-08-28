@@ -12,7 +12,7 @@ They are searched in a hyperparameter space, of course **by model selection on a
 
 - **[[Grid Search]]:** exhaustive over a grid of values. Coarse/wide first, then fine around the promising regions.
 - **[[Random Search]]:** sample configurations, fixing the budget independently of the number of hyperparameters.
-- **Automatic:** Bayesian approaches, [[Evolutionary Algorithms|evolutionary]] approaches, configuration evaluation methods (Hyperband), ... Current libraries (Keras Tuner, Scikit-Learn) include many, moving towards AutoML.
+- **Automatic:** Bayesian approaches, [[Evolutionary Algorithms|evolutionary]] approaches, ...
 
 > [!note]
 > Don't use the automatic ones uncritically. Compare with the grid search, which teaches you more on a first approach to ML.

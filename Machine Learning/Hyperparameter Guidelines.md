@@ -1,5 +1,5 @@
 ---
-tags: [machine-learning, guidelines, practical, reference]
+tags: [machine-learning, reference]
 ---
 
 # Hyperparameter Guidelines
