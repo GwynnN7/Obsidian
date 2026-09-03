@@ -72,6 +72,38 @@
       "type": "file",
       "ctime": 1787932535502,
       "path": "Machine Learning/Theory/Generalization/Bias-Variance Tradeoff.md"
+    },
+    {
+      "type": "file",
+      "ctime": 1787951894591,
+      "path": "Machine Learning/Validation/Schemas/Validation Schemas.md"
+    },
+    {
+      "type": "file",
+      "ctime": 1787996841258,
+      "path": "Machine Learning/Models/Architectures/CNN.md"
+    },
+    {
+      "type": "file",
+      "ctime": 1787996844330,
+      "path": "Machine Learning/Models/Architectures/Echo State Networks.md"
+    },
+    {
+      "type": "file",
+      "ctime": 1787996847703,
+      "path": "Machine Learning/Models/Architectures/RNN.md"
+    },
+    {
+      "type": "file",
+      "ctime": 1788280172483,
+      "path": "Machine Learning/ML Exam Questions.md",
+      "subpath": "#C1 [theory] Shattering and VC dimension"
+    },
+    {
+      "type": "file",
+      "ctime": 1788285007792,
+      "path": "Machine Learning/ML Exam Questions.md",
+      "subpath": "#D2 [exercise] Least squares and ridge by hand"
     }
   ]
 }

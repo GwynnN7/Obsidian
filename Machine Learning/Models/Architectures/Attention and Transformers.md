@@ -14,7 +14,7 @@ An attention mechanism lets a model access **any** preceding point along the seq
 - Especially useful in language translation, where far-away context can be essential for the meaning of a word.
 - First used to improve RNN models, then alone.
 - All tokens are processed **simultaneously**, computing weights between them in successive layers - or better, between their **embeddings**: scaled dot-product units using query and word vectors to find the highest correlations among the words of a sentence. E.g. in *"see that girl"*, *"that"* is identified as correlated to *"girl"*.
-- The architecture is completed by an encoder and/or decoder plus feed-forward networks, depending on the purpose. **Auto-regression** is used for generation.
+- The architecture is completed by an encoder and/or decoder ([[Representation Learning]]) plus feed-forward [[Neural Networks]], depending on the purpose. **Auto-regression** is used for generation.
 - It applies to image *patches* too, instead of words $\to$ vision transformers.
 
 **GPT** = Generative Pre-trained Transformer, used to generate text, speech, images, code.

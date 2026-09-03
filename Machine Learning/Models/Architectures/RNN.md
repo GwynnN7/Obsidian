@@ -80,7 +80,7 @@ A transduction is a mapping *input sequence $\to$ output value or sequence*:
 
 ### 1. Finite memory / spatial approach (TDNN)
 
-Input-delay neural networks: a finite-size **shift register**, i.e. a sliding window over the sequence, feeding an MLP. If the buffer contains enough information, plain MLP training solves it.
+Time-delay neural networks: a finite-size **shift register**, i.e. a sliding window over the sequence, feeding an MLP. If the buffer contains enough information, plain MLP training solves it.
 
 - **But:** you must know the window size in advance, and the number of weights depends on the buffer size.
 - This is the same idea [[CNN]] extends to 2D images.
@@ -94,7 +94,7 @@ x(0)=0,\qquad
 x(t)=\tau(l(t),x(t-1))=f\big(w^T l(t)+\hat w\,x(t-1)+\theta\big)
 $$
 
-with $f$ a sigmoidal activation, $\hat w$ the **recurrent weight**, $\theta$ the bias, and $q^{-1}$ the unit-time delay.
+with $f$ a sigmoidal activation, $\hat w$ the **recurrent weight** and $\theta$ the bias.
 
 - The **state summarizes the past** (the context) and changes with the stream of inputs.
 - The encoding of the past is **adaptive**, because those weights are free parameters of the model.
@@ -105,7 +105,7 @@ Reading the two equations at the top:
 
 - $\tau$ is the **state transition (next-state) function**, realized by a NN.
 - The state has **continuous** values, and $x(t)$ can be a set of states (a network of recurrent units).
-- Same graphical model family as HMM, but with continuous adaptive states.
+- Same graphical model family as [[Hidden Markov Models]], but with continuous adaptive states.
 
 ### The three assumptions
 

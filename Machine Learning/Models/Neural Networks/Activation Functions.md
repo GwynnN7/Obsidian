@@ -31,7 +31,7 @@ $$
 The outputs are positive and sum to $1$, so they read as $p(\text{class}=k\mid \boldsymbol{x})$. Output layer for multi-class problems, paired with cross-entropy - see [[Multiclass Classification]].
 
 > [!important] Non-linear hidden units are essential
-> An MLP with linear hidden units collapses into a single-layer network: a composition of linear maps is linear. (Exercise: rewrite $h(\boldsymbol{x})$ with $f=$ identity.) Everything the depth buys depends on $f$ being non-linear.
+> An MLP with linear hidden units collapses into a single-layer network: a composition of linear maps is linear. Everything the depth buys depends on $f$ being non-linear.
 
 ## The three basic families
 

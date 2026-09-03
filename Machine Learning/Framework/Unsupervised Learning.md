@@ -6,7 +6,7 @@ tags: [machine-learning, moc, theory]
 
 No teacher: the training set is a set of unlabeled data $\{\boldsymbol{x}\}$.
 
-This is the other branch of the vault. Almost everything else here - [[Theory]], [[Training]], [[Validation]] - is written for the supervised case, where a target tells you what "right" means. Take the target away and most of it stops applying: there is no risk to bound, no error to backpropagate, and no clean way to say a result is good.
+Almost everything else - [[Theory]], [[Training]], [[Validation]] - is written for the supervised case, where a target tells you what "right" means. Take the target away and most of it stops applying: there is no risk to bound, no error to backpropagate, and no clean way to say a result is good.
 
 The practical reason it matters anyway: **unlabeled data are much cheaper to obtain**.
 

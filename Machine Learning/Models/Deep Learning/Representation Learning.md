@@ -9,7 +9,7 @@ tags: [machine-learning, theory]
 
 Many tasks are easy or hard depending only on **how the information is represented**. A good representation is one that makes the subsequent learning task easier.
 
-- Manual design of features takes decades of work in specific communities (language, images, chemistry). In the vault's terms, it means hand-picking the $\phi(\boldsymbol{x})$ of [[Linear Basis Expansion]].
+- Manual design of features takes decades of work in specific communities (language, images, chemistry). It means hand-picking the $\phi(\boldsymbol{x})$ of [[Linear Basis Expansion]].
 - A supervised MLP already does it automatically: every hidden layer takes on properties that make the output layer's task easier, because $\phi(\boldsymbol{x},\boldsymbol{w})$ is **learned** by fitting $\boldsymbol{w}$ - see [[Neural Networks]] and the XOR example.
 - [[CNN]] does it on raw images: no pattern or engineered feature is specified in advance.
 - [[Deep Learning]] is representation learning with **multiple levels** of representation, each expressed in terms of simpler ones.
@@ -18,10 +18,10 @@ The concept is more general than deep models, though: it applies to NN in genera
 
 ## Two questions
 
-| | |
-|---|---|
+
 | How to **obtain** a hidden representation? | semi-supervised learning $\to$ **pre-training** |
-| How to **exploit** one you already have? | **transfer learning** |
+| ------------------------------------------ | ----------------------------------------------- |
+| How to **exploit** one you already have?   | **transfer learning**                           |
 
 ## Autoencoders
 
