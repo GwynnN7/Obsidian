@@ -1,0 +1,17 @@
+---
+tags: [machine-learning, theory]
+---
+
+# Regression
+
+Estimate a real-valued function from a finite set of **noisy** samples: known pairs $(x, f(x)+\text{noise})$, target $y\in\mathbb{R}$ (or $\mathbb{R}^K$ for multi-output).
+
+- Inner loss: squared error $(h(x)-y)^2$, see [[Loss Functions]].
+- Metrics: [[Mean Squared Error]]/RMSE, MAE, max error, $R$ - see [[Regression Metrics]].
+- Output units for NN: **linear**, one per quantitative response.
+
+## Models in these notes
+
+[[Linear Models]] (LMS), [[Linear Basis Expansion]] / polynomial regression, [[k-NN]] (mean of the neighbors), [[Neural Networks]], [[SVM Regression]] ($\epsilon$-insensitive).
+
+Related: [[Supervised Learning]].
