@@ -3,106 +3,106 @@
     {
       "type": "file",
       "ctime": 1787778587118,
-      "path": "Artificial Intelligence Fundamentals/Games and Multiagent/Game Theory.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Games and Multiagent/Game Theory.md",
       "subpath": "#Nash equilibrium",
       "title": "Nash Equilibrium"
     },
     {
       "type": "file",
       "ctime": 1787778647891,
-      "path": "Artificial Intelligence Fundamentals/Artificial Life/Cellular Automata.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Artificial Life/Cellular Automata.md",
       "subpath": "#Neural Cellular Automaton (NCA)",
       "title": "Cellular Automata"
     },
     {
       "type": "file",
       "ctime": 1787778704885,
-      "path": "Artificial Intelligence Fundamentals/Agents and Search/Uninformed Search.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Agents and Search/Uninformed Search.md",
       "subpath": "#Uninformed Search",
       "title": "Uninformed Serach"
     },
     {
       "type": "file",
       "ctime": 1787778716585,
-      "path": "Artificial Intelligence Fundamentals/Agents and Search/Informed Search.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Agents and Search/Informed Search.md",
       "subpath": "#Informed Search",
       "title": "Informed Search"
     },
     {
       "type": "file",
       "ctime": 1787778759884,
-      "path": "Artificial Intelligence Fundamentals/Games and Multiagent/Monte-Carlo Tree Search.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Games and Multiagent/Monte-Carlo Tree Search.md",
       "subpath": "#Monte-Carlo Tree Search",
       "title": "MCTS"
     },
     {
       "type": "file",
       "ctime": 1787778795877,
-      "path": "Artificial Intelligence Fundamentals/Games and Multiagent/Social Welfare.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Games and Multiagent/Social Welfare.md",
       "subpath": "#Pareto optimality",
       "title": "Pareto Optimality"
     },
     {
       "type": "file",
       "ctime": 1787778869017,
-      "path": "Artificial Intelligence Fundamentals/Knowledge and Logic/First-Order Logic.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Knowledge and Logic/First-Order Logic.md",
       "subpath": "#First-Order Logic",
       "title": "FOL"
     },
     {
       "type": "file",
       "ctime": 1787778963730,
-      "path": "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Hidden Markov Models.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Probabilistic Reasoning/Hidden Markov Models.md",
       "subpath": "#Hidden Markov Models",
       "title": "Hidden Markov Model"
     },
     {
       "type": "file",
       "ctime": 1787779007039,
-      "path": "Artificial Intelligence Fundamentals/Probabilistic Reasoning/Probability and Decision Theory.md",
+      "path": "Artificial Intelligence/Artificial Intelligence Fundamentals/Probabilistic Reasoning/Probability and Decision Theory.md",
       "subpath": "#Bayes' rule",
       "title": "Bayes' Rule"
     },
     {
       "type": "file",
       "ctime": 1787929231488,
-      "path": "Machine Learning/Theory/Capacity and Bounds/VC Dimension.md"
+      "path": "Artificial Intelligence/Machine Learning/Theory/Capacity and Bounds/VC Dimension.md"
     },
     {
       "type": "file",
       "ctime": 1787932535502,
-      "path": "Machine Learning/Theory/Generalization/Bias-Variance Tradeoff.md"
+      "path": "Artificial Intelligence/Machine Learning/Theory/Generalization/Bias-Variance Tradeoff.md"
     },
     {
       "type": "file",
       "ctime": 1787951894591,
-      "path": "Machine Learning/Validation/Schemas/Validation Schemas.md"
+      "path": "Artificial Intelligence/Machine Learning/Validation/Schemas/Validation Schemas.md"
     },
     {
       "type": "file",
       "ctime": 1787996841258,
-      "path": "Machine Learning/Models/Architectures/CNN.md"
+      "path": "Artificial Intelligence/Machine Learning/Models/Architectures/CNN.md"
     },
     {
       "type": "file",
       "ctime": 1787996844330,
-      "path": "Machine Learning/Models/Architectures/Echo State Networks.md"
+      "path": "Artificial Intelligence/Machine Learning/Models/Architectures/Echo State Networks.md"
     },
     {
       "type": "file",
       "ctime": 1787996847703,
-      "path": "Machine Learning/Models/Architectures/RNN.md"
+      "path": "Artificial Intelligence/Machine Learning/Models/Architectures/RNN.md"
     },
     {
       "type": "file",
       "ctime": 1788280172483,
-      "path": "Machine Learning/ML Exam Questions.md",
+      "path": "Artificial Intelligence/Machine Learning/ML Exam Questions.md",
       "subpath": "#C1 [theory] Shattering and VC dimension"
     },
     {
       "type": "file",
       "ctime": 1788285007792,
-      "path": "Machine Learning/ML Exam Questions.md",
+      "path": "Artificial Intelligence/Machine Learning/ML Exam Questions.md",
       "subpath": "#D2 [exercise] Least squares and ridge by hand"
     }
   ]

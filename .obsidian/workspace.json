@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "001b6fdbf7c343c9",
+        "id": "2232d15c94a2d7a7",
         "type": "tabs",
         "children": [
           {
-            "id": "39ae20e751962e8b",
+            "id": "8e8b023c27bcfb2b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Machine Learning/Models/Deep Learning/Deep Learning.md",
+                "file": "Artificial Intelligence/Computational Mathematics/Optimization/01 - Foundations and Quadratic Optimization.md",
                 "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Deep Learning"
+              "title": "01 - Foundations and Quadratic Optimization"
             }
           }
         ]
@@ -56,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "vc",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": true,
                 "collapseAll": true,
@@ -84,7 +84,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 365.37109375
+    "width": 332.75390625
   },
   "right": {
     "id": "fa71786e6663b03b",
@@ -201,46 +201,45 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "39ae20e751962e8b",
+  "active": "8e8b023c27bcfb2b",
   "lastOpenFiles": [
-    "Machine Learning/Models/Ensembles/Ensemble Learning.md",
-    "Machine Learning/Models/Ensembles/Boosting.md",
-    "Machine Learning/Models/Ensembles/Bagging.md",
-    "Machine Learning/Models/Instance-Based/Curse of Dimensionality.md",
-    "Machine Learning/Models/Instance-Based/k-NN.md",
-    "Machine Learning/Models/Linear and Kernel/Linear Models.md",
-    "Machine Learning/Models/Linear and Kernel/Linear Basis Expansion.md",
-    "Machine Learning/Models/Linear and Kernel/Kernel Methods.md",
-    "Machine Learning/Models/Neural Networks/Activation Functions.md",
-    "Machine Learning/Models/Neural Networks/Universal Approximation.md",
-    "Machine Learning/Models/Neural Networks/Perceptron.md",
-    "Machine Learning/Models/Neural Networks/Neural Networks.md",
-    "Machine Learning/Models/Neural Networks/Cascade Correlation.md",
-    "Machine Learning/Models/Structured Data/Structured Domain Learning.md",
-    "Machine Learning/Models/Structured Data/SOM.md",
-    "Machine Learning/Models/Structured Data/Graph Echo State Networks.md",
-    "Machine Learning/Models/Structured Data/Deep Graph Networks.md",
-    "2026-09-03.md",
-    "Machine Learning/ML Exam Quiz.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/02 - Univariate Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/Optimization - Review Sheet.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/Computational Mathematics - Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/04 - Smooth Unconstrained Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/03 - Unconstrained Optimality and Convexity.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/01 - Foundations and Quadratic Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/00 - Motivation and Models.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization",
+    "structure.txt",
+    "Artificial Intelligence/Computational Mathematics/Optimization/Motivation and Models.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/Foundations and Quadratic Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/Smooth Unconstrained Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/Unconstrained Optimality and Convexity.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/Univariate Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/Slide-by-slide Coverage Audit.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization/Slide-by-slide Coverage Audit.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/Optimization - Review Sheet.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/Computational Mathematics - Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/04 - Smooth Unconstrained Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/03 - Unconstrained Optimality and Convexity.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/02 - Univariate Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/01 - Foundations and Quadratic Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/00 - Motivation and Models.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/Computational Mathematics - Optimization/01 - Foundations and Quadratic Optimization.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/Computational Mathematics - Optimization/00 - Motivation and Models.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/Computational Mathematics - Optimization/Slide-by-slide Coverage Audit.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/Computational Mathematics - Optimization/Optimization - Review Sheet.md",
+    "Artificial Intelligence/Computational Mathematics/Optimization2/Computational Mathematics - Optimization",
+    "Artificial Intelligence/Computational Mathematics/Optimization2",
+    "Artificial Intelligence/Advanced Programming",
+    "Artificial Intelligence/Accelerated Computing",
+    "Artificial Intelligence/Computational Mathematics",
+    "Artificial Intelligence",
     "Untitled.base",
-    "2026-09-02.md",
-    "Machine Learning/ML Exam Questions.md",
-    "Answers.md",
-    "Machine Learning/Validation/Schemas/Bootstrap.md",
-    "Machine Learning/Models/Architectures/CNN.md",
-    "Machine Learning/Models/Architectures/Attention and Transformers.md",
-    "Machine Learning/Framework/Vector Quantization.md",
     "Machine Learning/ML Canvas.canvas",
     "Artificial Intelligence Fundamentals/AIF Map.canvas",
     "Untitled.canvas",
-    "Artificial Intelligence Fundamentals/Probabilistic Reasoning",
-    "Artificial Intelligence Fundamentals/Planning",
-    "Artificial Intelligence Fundamentals/Knowledge and Logic",
-    "Artificial Intelligence Fundamentals/Artificial Life",
-    "Artificial Intelligence Fundamentals/Games and Multiagent",
-    "Artificial Intelligence Fundamentals/CSP",
-    "Artificial Intelligence Fundamentals/Agents and Search",
-    "sedoP5z53",
-    "Artificial Intelligence Fundamentals"
+    "Artificial Intelligence/Artificial Intelligence Fundamentals/Probabilistic Reasoning"
   ]
 }
